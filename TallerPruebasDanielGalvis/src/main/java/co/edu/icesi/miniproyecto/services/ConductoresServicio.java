@@ -7,7 +7,7 @@ import co.edu.icesi.miniproyecto.model.Tmio1Conductore;
 
 public interface ConductoresServicio {
 
-	public void addConductor(Tmio1Conductore conductor);
+	public void addConductor(Tmio1Conductore conductor) throws Exception;
 	
 	public Tmio1Conductore removeConductor (Tmio1Conductore conductor);
 	
