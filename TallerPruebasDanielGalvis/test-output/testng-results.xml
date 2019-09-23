@@ -2,40 +2,40 @@
 <testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="2369" started-at="2019-09-23T03:57:19Z" finished-at="2019-09-23T03:57:21Z">
+  <suite name="Default suite" duration-ms="1924" started-at="2019-09-23T04:01:14Z" finished-at="2019-09-23T04:01:16Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="2369" started-at="2019-09-23T03:57:19Z" finished-at="2019-09-23T03:57:21Z">
+    <test name="Default test" duration-ms="1924" started-at="2019-09-23T04:01:14Z" finished-at="2019-09-23T04:01:16Z">
       <class name="com.taller3.sistemamio.unit_tests.BusServiceTests">
-        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.BusServiceTests@14bf9759]" name="initMock" is-config="true" duration-ms="1822" started-at="2019-09-23T03:57:19Z" finished-at="2019-09-23T03:57:21Z">
+        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.BusServiceTests@6f7fd0e6]" name="initMock" is-config="true" duration-ms="1608" started-at="2019-09-23T04:01:14Z" finished-at="2019-09-23T04:01:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initMock -->
-        <test-method status="PASS" signature="testAddBusA()[pri:0, instance:com.taller3.sistemamio.unit_tests.BusServiceTests@14bf9759]" name="testAddBusA" duration-ms="125" started-at="2019-09-23T03:57:21Z" finished-at="2019-09-23T03:57:21Z">
+        <test-method status="PASS" signature="testAddBusA()[pri:0, instance:com.taller3.sistemamio.unit_tests.BusServiceTests@6f7fd0e6]" name="testAddBusA" duration-ms="107" started-at="2019-09-23T04:01:16Z" finished-at="2019-09-23T04:01:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testAddBusA -->
-        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.BusServiceTests@14bf9759]" name="initMock" is-config="true" duration-ms="32" started-at="2019-09-23T03:57:21Z" finished-at="2019-09-23T03:57:21Z">
+        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.BusServiceTests@6f7fd0e6]" name="initMock" is-config="true" duration-ms="10" started-at="2019-09-23T04:01:16Z" finished-at="2019-09-23T04:01:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initMock -->
-        <test-method status="PASS" signature="testAddBusP()[pri:0, instance:com.taller3.sistemamio.unit_tests.BusServiceTests@14bf9759]" name="testAddBusP" duration-ms="5" started-at="2019-09-23T03:57:21Z" finished-at="2019-09-23T03:57:21Z">
+        <test-method status="PASS" signature="testAddBusP()[pri:0, instance:com.taller3.sistemamio.unit_tests.BusServiceTests@6f7fd0e6]" name="testAddBusP" duration-ms="5" started-at="2019-09-23T04:01:16Z" finished-at="2019-09-23T04:01:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testAddBusP -->
-        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.BusServiceTests@14bf9759]" name="initMock" is-config="true" duration-ms="3" started-at="2019-09-23T03:57:21Z" finished-at="2019-09-23T03:57:21Z">
+        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.BusServiceTests@6f7fd0e6]" name="initMock" is-config="true" duration-ms="1" started-at="2019-09-23T04:01:16Z" finished-at="2019-09-23T04:01:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initMock -->
-        <test-method status="PASS" signature="testAddBusT()[pri:0, instance:com.taller3.sistemamio.unit_tests.BusServiceTests@14bf9759]" name="testAddBusT" duration-ms="9" started-at="2019-09-23T03:57:21Z" finished-at="2019-09-23T03:57:21Z">
+        <test-method status="PASS" signature="testAddBusT()[pri:0, instance:com.taller3.sistemamio.unit_tests.BusServiceTests@6f7fd0e6]" name="testAddBusT" duration-ms="9" started-at="2019-09-23T04:01:16Z" finished-at="2019-09-23T04:01:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testAddBusT -->
-        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.BusServiceTests@14bf9759]" name="initMock" is-config="true" duration-ms="3" started-at="2019-09-23T03:57:21Z" finished-at="2019-09-23T03:57:21Z">
+        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.BusServiceTests@6f7fd0e6]" name="initMock" is-config="true" duration-ms="11" started-at="2019-09-23T04:01:16Z" finished-at="2019-09-23T04:01:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initMock -->
-        <test-method status="PASS" signature="testAddNullBuss()[pri:0, instance:com.taller3.sistemamio.unit_tests.BusServiceTests@14bf9759]" name="testAddNullBuss" duration-ms="30" started-at="2019-09-23T03:57:21Z" finished-at="2019-09-23T03:57:21Z">
+        <test-method status="PASS" signature="testAddNullBuss()[pri:0, instance:com.taller3.sistemamio.unit_tests.BusServiceTests@6f7fd0e6]" name="testAddNullBuss" duration-ms="4" started-at="2019-09-23T04:01:16Z" finished-at="2019-09-23T04:01:16Z">
           <exception class="java.lang.NullPointerException">
             <message>
               <![CDATA[El bus no puede ser nulo]]>
