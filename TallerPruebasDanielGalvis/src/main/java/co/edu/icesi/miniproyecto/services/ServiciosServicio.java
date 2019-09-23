@@ -6,7 +6,7 @@ import co.edu.icesi.miniproyecto.model.Tmio1Servicio;
 
 public interface ServiciosServicio {
 
-	public void addServicio (Tmio1Servicio servicio);
+	public void addServicio (Tmio1Servicio servicio) throws Exception;
 	
 	public Tmio1Servicio removeServicio (Tmio1Servicio servicio);
 	

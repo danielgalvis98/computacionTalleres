@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="1619" started-at="2019-09-23T22:12:53Z" finished-at="2019-09-23T22:12:55Z">
+  <suite name="Default suite" duration-ms="1918" started-at="2019-09-23T23:45:51Z" finished-at="2019-09-23T23:45:53Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="1619" started-at="2019-09-23T22:12:53Z" finished-at="2019-09-23T22:12:55Z">
+    <test name="Default test" duration-ms="1918" started-at="2019-09-23T23:45:51Z" finished-at="2019-09-23T23:45:53Z">
       <class name="com.taller3.sistemamio.unit_tests.RutasServicioTest">
-        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251]" name="initMock" is-config="true" duration-ms="1323" started-at="2019-09-23T22:12:53Z" finished-at="2019-09-23T22:12:55Z">
+        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251]" name="initMock" is-config="true" duration-ms="1629" started-at="2019-09-23T23:45:52Z" finished-at="2019-09-23T23:45:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initMock -->
-        <test-method status="PASS" signature="testAddRutaCorrect()[pri:0, instance:com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251]" name="testAddRutaCorrect" duration-ms="106" started-at="2019-09-23T22:12:55Z" finished-at="2019-09-23T22:12:55Z">
+        <test-method status="PASS" signature="testAddRutaCorrect()[pri:0, instance:com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251]" name="testAddRutaCorrect" duration-ms="87" started-at="2019-09-23T23:45:53Z" finished-at="2019-09-23T23:45:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testAddRutaCorrect -->
-        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251]" name="initMock" is-config="true" duration-ms="11" started-at="2019-09-23T22:12:55Z" finished-at="2019-09-23T22:12:55Z">
+        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251]" name="initMock" is-config="true" duration-ms="12" started-at="2019-09-23T23:45:53Z" finished-at="2019-09-23T23:45:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initMock -->
-        <test-method status="PASS" signature="testAddRutaFechasInconsistentes()[pri:0, instance:com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251]" name="testAddRutaFechasInconsistentes" duration-ms="5" started-at="2019-09-23T22:12:55Z" finished-at="2019-09-23T22:12:55Z">
+        <test-method status="PASS" signature="testAddRutaFechasInconsistentes()[pri:0, instance:com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251]" name="testAddRutaFechasInconsistentes" duration-ms="6" started-at="2019-09-23T23:45:53Z" finished-at="2019-09-23T23:45:53Z">
           <exception class="java.lang.Exception">
             <message>
               <![CDATA[El día de inicio debe ser menor al día de fin]]>
@@ -59,11 +59,11 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testAddRutaFechasInconsistentes -->
-        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251]" name="initMock" is-config="true" duration-ms="3" started-at="2019-09-23T22:12:55Z" finished-at="2019-09-23T22:12:55Z">
+        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251]" name="initMock" is-config="true" duration-ms="1" started-at="2019-09-23T23:45:53Z" finished-at="2019-09-23T23:45:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initMock -->
-        <test-method status="PASS" signature="testAddRutaHorasInconsistentes()[pri:0, instance:com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251]" name="testAddRutaHorasInconsistentes" duration-ms="14" started-at="2019-09-23T22:12:55Z" finished-at="2019-09-23T22:12:55Z">
+        <test-method status="PASS" signature="testAddRutaHorasInconsistentes()[pri:0, instance:com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251]" name="testAddRutaHorasInconsistentes" duration-ms="3" started-at="2019-09-23T23:45:53Z" finished-at="2019-09-23T23:45:53Z">
           <exception class="java.lang.Exception">
             <message>
               <![CDATA[La hora de inicio ser menor la hora de fin]]>
@@ -103,11 +103,11 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testAddRutaHorasInconsistentes -->
-        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251]" name="initMock" is-config="true" duration-ms="3" started-at="2019-09-23T22:12:55Z" finished-at="2019-09-23T22:12:55Z">
+        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251]" name="initMock" is-config="true" duration-ms="1" started-at="2019-09-23T23:45:53Z" finished-at="2019-09-23T23:45:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initMock -->
-        <test-method status="PASS" signature="testAddRutaNull()[pri:0, instance:com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251]" name="testAddRutaNull" duration-ms="7" started-at="2019-09-23T22:12:55Z" finished-at="2019-09-23T22:12:55Z">
+        <test-method status="PASS" signature="testAddRutaNull()[pri:0, instance:com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251]" name="testAddRutaNull" duration-ms="7" started-at="2019-09-23T23:45:53Z" finished-at="2019-09-23T23:45:53Z">
           <exception class="java.lang.NullPointerException">
             <message>
               <![CDATA[La ruta no puede ser nula]]>
