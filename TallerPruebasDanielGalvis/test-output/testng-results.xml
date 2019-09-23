@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="2037" started-at="2019-09-23T20:51:29Z" finished-at="2019-09-23T20:51:31Z">
+  <suite name="Default suite" duration-ms="1619" started-at="2019-09-23T22:12:53Z" finished-at="2019-09-23T22:12:55Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="2037" started-at="2019-09-23T20:51:29Z" finished-at="2019-09-23T20:51:31Z">
-      <class name="com.taller3.sistemamio.unit_tests.ConductoresServicioTests">
-        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.ConductoresServicioTests@47c62251]" name="initMock" is-config="true" duration-ms="1689" started-at="2019-09-23T20:51:29Z" finished-at="2019-09-23T20:51:30Z">
+    <test name="Default test" duration-ms="1619" started-at="2019-09-23T22:12:53Z" finished-at="2019-09-23T22:12:55Z">
+      <class name="com.taller3.sistemamio.unit_tests.RutasServicioTest">
+        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251]" name="initMock" is-config="true" duration-ms="1323" started-at="2019-09-23T22:12:53Z" finished-at="2019-09-23T22:12:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initMock -->
-        <test-method status="PASS" signature="testAddConductorCorrect()[pri:0, instance:com.taller3.sistemamio.unit_tests.ConductoresServicioTests@47c62251]" name="testAddConductorCorrect" duration-ms="177" started-at="2019-09-23T20:51:30Z" finished-at="2019-09-23T20:51:30Z">
+        <test-method status="PASS" signature="testAddRutaCorrect()[pri:0, instance:com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251]" name="testAddRutaCorrect" duration-ms="106" started-at="2019-09-23T22:12:55Z" finished-at="2019-09-23T22:12:55Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testAddConductorCorrect -->
-        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.ConductoresServicioTests@47c62251]" name="initMock" is-config="true" duration-ms="9" started-at="2019-09-23T20:51:30Z" finished-at="2019-09-23T20:51:30Z">
+        </test-method> <!-- testAddRutaCorrect -->
+        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251]" name="initMock" is-config="true" duration-ms="11" started-at="2019-09-23T22:12:55Z" finished-at="2019-09-23T22:12:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initMock -->
-        <test-method status="PASS" signature="testAddConductorInconsistent()[pri:0, instance:com.taller3.sistemamio.unit_tests.ConductoresServicioTests@47c62251]" name="testAddConductorInconsistent" duration-ms="3" started-at="2019-09-23T20:51:30Z" finished-at="2019-09-23T20:51:30Z">
+        <test-method status="PASS" signature="testAddRutaFechasInconsistentes()[pri:0, instance:com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251]" name="testAddRutaFechasInconsistentes" duration-ms="5" started-at="2019-09-23T22:12:55Z" finished-at="2019-09-23T22:12:55Z">
           <exception class="java.lang.Exception">
             <message>
-              <![CDATA[Un conductor no puede ser contratado antes de su fecha de nacimiento]]>
+              <![CDATA[El día de inicio debe ser menor al día de fin]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Exception: Un conductor no puede ser contratado antes de su fecha de nacimiento
-at co.edu.icesi.miniproyecto.services.ConductoresServicioImpl.addConductor(ConductoresServicioImpl.java:28)
-at com.taller3.sistemamio.unit_tests.ConductoresServicioTests.testAddConductorInconsistent(ConductoresServicioTests.java:59)
+              <![CDATA[java.lang.Exception: El día de inicio debe ser menor al día de fin
+at co.edu.icesi.miniproyecto.services.RutasServicioImpl.addRuta(RutasServicioImpl.java:28)
+at com.taller3.sistemamio.unit_tests.RutasServicioTest.testAddRutaFechasInconsistentes(RutasServicioTest.java:62)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -58,20 +58,64 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- java.lang.Exception -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testAddConductorInconsistent -->
-        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.ConductoresServicioTests@47c62251]" name="initMock" is-config="true" duration-ms="3" started-at="2019-09-23T20:51:31Z" finished-at="2019-09-23T20:51:31Z">
+        </test-method> <!-- testAddRutaFechasInconsistentes -->
+        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251]" name="initMock" is-config="true" duration-ms="3" started-at="2019-09-23T22:12:55Z" finished-at="2019-09-23T22:12:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initMock -->
-        <test-method status="PASS" signature="testAddConductorNull()[pri:0, instance:com.taller3.sistemamio.unit_tests.ConductoresServicioTests@47c62251]" name="testAddConductorNull" duration-ms="17" started-at="2019-09-23T20:51:31Z" finished-at="2019-09-23T20:51:31Z">
-          <exception class="java.lang.NullPointerException">
+        <test-method status="PASS" signature="testAddRutaHorasInconsistentes()[pri:0, instance:com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251]" name="testAddRutaHorasInconsistentes" duration-ms="14" started-at="2019-09-23T22:12:55Z" finished-at="2019-09-23T22:12:55Z">
+          <exception class="java.lang.Exception">
             <message>
-              <![CDATA[El conductor no puede ser nulo]]>
+              <![CDATA[La hora de inicio ser menor la hora de fin]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException: El conductor no puede ser nulo
-at co.edu.icesi.miniproyecto.services.ConductoresServicioImpl.addConductor(ConductoresServicioImpl.java:25)
-at com.taller3.sistemamio.unit_tests.ConductoresServicioTests.testAddConductorNull(ConductoresServicioTests.java:68)
+              <![CDATA[java.lang.Exception: La hora de inicio ser menor la hora de fin
+at co.edu.icesi.miniproyecto.services.RutasServicioImpl.addRuta(RutasServicioImpl.java:31)
+at com.taller3.sistemamio.unit_tests.RutasServicioTest.testAddRutaHorasInconsistentes(RutasServicioTest.java:79)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Exception -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddRutaHorasInconsistentes -->
+        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251]" name="initMock" is-config="true" duration-ms="3" started-at="2019-09-23T22:12:55Z" finished-at="2019-09-23T22:12:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initMock -->
+        <test-method status="PASS" signature="testAddRutaNull()[pri:0, instance:com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251]" name="testAddRutaNull" duration-ms="7" started-at="2019-09-23T22:12:55Z" finished-at="2019-09-23T22:12:55Z">
+          <exception class="java.lang.NullPointerException">
+            <message>
+              <![CDATA[La ruta no puede ser nula]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException: La ruta no puede ser nula
+at co.edu.icesi.miniproyecto.services.RutasServicioImpl.addRuta(RutasServicioImpl.java:25)
+at com.taller3.sistemamio.unit_tests.RutasServicioTest.testAddRutaNull(RutasServicioTest.java:88)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -102,8 +146,8 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testAddConductorNull -->
-      </class> <!-- com.taller3.sistemamio.unit_tests.ConductoresServicioTests -->
+        </test-method> <!-- testAddRutaNull -->
+      </class> <!-- com.taller3.sistemamio.unit_tests.RutasServicioTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

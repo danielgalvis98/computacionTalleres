@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>3/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>4/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Sep 23 15:51:29 COT 2019</td>
+<td>Started on:</td><td>Mon Sep 23 17:12:53 COT 2019</td>
 </tr>
-<tr><td>Total time:</td><td>2 seconds (2037 ms)</td>
+<tr><td>Total time:</td><td>1 seconds (1619 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,15 +75,15 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.taller3.sistemamio.unit_tests.ConductoresServicioTests.testAddConductorCorrect()'><b>testAddConductorCorrect</b><br>Test class: com.taller3.sistemamio.unit_tests.ConductoresServicioTests</td>
+<td title='com.taller3.sistemamio.unit_tests.RutasServicioTest.testAddRutaCorrect()'><b>testAddRutaCorrect</b><br>Test class: com.taller3.sistemamio.unit_tests.RutasServicioTest</td>
 <td></td>
 <td>0</td>
-<td>com.taller3.sistemamio.unit_tests.ConductoresServicioTests@47c62251</td></tr>
+<td>com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251</td></tr>
 <tr>
-<td title='com.taller3.sistemamio.unit_tests.ConductoresServicioTests.testAddConductorInconsistent()'><b>testAddConductorInconsistent</b><br>Test class: com.taller3.sistemamio.unit_tests.ConductoresServicioTests</td>
-<td><div><pre>java.lang.Exception: Un conductor no puede ser contratado antes de su fecha de nacimiento
-	at co.edu.icesi.miniproyecto.services.ConductoresServicioImpl.addConductor(ConductoresServicioImpl.java:28)
-	at com.taller3.sistemamio.unit_tests.ConductoresServicioTests.testAddConductorInconsistent(ConductoresServicioTests.java:59)
+<td title='com.taller3.sistemamio.unit_tests.RutasServicioTest.testAddRutaFechasInconsistentes()'><b>testAddRutaFechasInconsistentes</b><br>Test class: com.taller3.sistemamio.unit_tests.RutasServicioTest</td>
+<td><div><pre>java.lang.Exception: El día de inicio debe ser menor al día de fin
+	at co.edu.icesi.miniproyecto.services.RutasServicioImpl.addRuta(RutasServicioImpl.java:28)
+	at com.taller3.sistemamio.unit_tests.RutasServicioTest.testAddRutaFechasInconsistentes(RutasServicioTest.java:62)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -109,10 +109,10 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace138776324", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace138776324'><pre>java.lang.Exception: Un conductor no puede ser contratado antes de su fecha de nacimiento
-	at co.edu.icesi.miniproyecto.services.ConductoresServicioImpl.addConductor(ConductoresServicioImpl.java:28)
-	at com.taller3.sistemamio.unit_tests.ConductoresServicioTests.testAddConductorInconsistent(ConductoresServicioTests.java:59)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1926004335", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1926004335'><pre>java.lang.Exception: El día de inicio debe ser menor al día de fin
+	at co.edu.icesi.miniproyecto.services.RutasServicioImpl.addRuta(RutasServicioImpl.java:28)
+	at com.taller3.sistemamio.unit_tests.RutasServicioTest.testAddRutaFechasInconsistentes(RutasServicioTest.java:62)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -140,12 +140,12 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>com.taller3.sistemamio.unit_tests.ConductoresServicioTests@47c62251</td></tr>
+<td>com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251</td></tr>
 <tr>
-<td title='com.taller3.sistemamio.unit_tests.ConductoresServicioTests.testAddConductorNull()'><b>testAddConductorNull</b><br>Test class: com.taller3.sistemamio.unit_tests.ConductoresServicioTests</td>
-<td><div><pre>java.lang.NullPointerException: El conductor no puede ser nulo
-	at co.edu.icesi.miniproyecto.services.ConductoresServicioImpl.addConductor(ConductoresServicioImpl.java:25)
-	at com.taller3.sistemamio.unit_tests.ConductoresServicioTests.testAddConductorNull(ConductoresServicioTests.java:68)
+<td title='com.taller3.sistemamio.unit_tests.RutasServicioTest.testAddRutaHorasInconsistentes()'><b>testAddRutaHorasInconsistentes</b><br>Test class: com.taller3.sistemamio.unit_tests.RutasServicioTest</td>
+<td><div><pre>java.lang.Exception: La hora de inicio ser menor la hora de fin
+	at co.edu.icesi.miniproyecto.services.RutasServicioImpl.addRuta(RutasServicioImpl.java:31)
+	at com.taller3.sistemamio.unit_tests.RutasServicioTest.testAddRutaHorasInconsistentes(RutasServicioTest.java:79)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -171,10 +171,10 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1579957528", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1579957528'><pre>java.lang.NullPointerException: El conductor no puede ser nulo
-	at co.edu.icesi.miniproyecto.services.ConductoresServicioImpl.addConductor(ConductoresServicioImpl.java:25)
-	at com.taller3.sistemamio.unit_tests.ConductoresServicioTests.testAddConductorNull(ConductoresServicioTests.java:68)
+</pre></div><a href='#' onClick='toggleBox("stack-trace405215542", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace405215542'><pre>java.lang.Exception: La hora de inicio ser menor la hora de fin
+	at co.edu.icesi.miniproyecto.services.RutasServicioImpl.addRuta(RutasServicioImpl.java:31)
+	at com.taller3.sistemamio.unit_tests.RutasServicioTest.testAddRutaHorasInconsistentes(RutasServicioTest.java:79)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -202,7 +202,69 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>com.taller3.sistemamio.unit_tests.ConductoresServicioTests@47c62251</td></tr>
+<td>com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251</td></tr>
+<tr>
+<td title='com.taller3.sistemamio.unit_tests.RutasServicioTest.testAddRutaNull()'><b>testAddRutaNull</b><br>Test class: com.taller3.sistemamio.unit_tests.RutasServicioTest</td>
+<td><div><pre>java.lang.NullPointerException: La ruta no puede ser nula
+	at co.edu.icesi.miniproyecto.services.RutasServicioImpl.addRuta(RutasServicioImpl.java:25)
+	at com.taller3.sistemamio.unit_tests.RutasServicioTest.testAddRutaNull(RutasServicioTest.java:88)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1758008124", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1758008124'><pre>java.lang.NullPointerException: La ruta no puede ser nula
+	at co.edu.icesi.miniproyecto.services.RutasServicioImpl.addRuta(RutasServicioImpl.java:25)
+	at com.taller3.sistemamio.unit_tests.RutasServicioTest.testAddRutaNull(RutasServicioTest.java:88)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.taller3.sistemamio.unit_tests.RutasServicioTest@47c62251</td></tr>
 </table><p>
 </body>
 </html>

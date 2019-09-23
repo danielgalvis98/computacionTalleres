@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.taller3.sistemamio.unit_tests.ConductoresServicioTests">
+      <class name="com.taller3.sistemamio.unit_tests.RutasServicioTest">
         <methods>
           <include name="initMock"/>
-          <include name="testAddConductorInconsistent"/>
+          <include name="testAddRutaHorasInconsistentes"/>
         </methods>
-      </class> <!-- com.taller3.sistemamio.unit_tests.ConductoresServicioTests -->
+      </class> <!-- com.taller3.sistemamio.unit_tests.RutasServicioTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

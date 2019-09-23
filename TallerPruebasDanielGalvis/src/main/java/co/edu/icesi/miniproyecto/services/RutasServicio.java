@@ -7,7 +7,7 @@ import co.edu.icesi.miniproyecto.model.Tmio1Ruta;
 
 public interface RutasServicio {
 
-	public void addRuta (Tmio1Ruta ruta);
+	public void addRuta (Tmio1Ruta ruta) throws Exception;
 	
 	public Tmio1Ruta deleteRuta (Tmio1Ruta ruta);
 	
