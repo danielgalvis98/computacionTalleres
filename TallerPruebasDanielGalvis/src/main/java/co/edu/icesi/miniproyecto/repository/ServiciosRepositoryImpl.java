@@ -10,12 +10,11 @@ import co.edu.icesi.miniproyecto.model.Tmio1Servicio;
 @Repository
 public class ServiciosRepositoryImpl implements ServiciosRepository{
 
-	HashMap<String, Tmio1Servicio> servicios;
+	HashMap<String, Tmio1Servicio> servicios = new HashMap<>();
 
 	@Override
 	public void addServicio(Tmio1Servicio servicio) {
-		// TODO Auto-generated method stub
-		
+		servicios.put(servicio.getNewId(), servicio);
 	}
 
 	@Override
@@ -32,8 +31,7 @@ public class ServiciosRepositoryImpl implements ServiciosRepository{
 
 	@Override
 	public Tmio1Servicio getServicio(String servicioId) {
-		// TODO Auto-generated method stub
-		return null;
+		return servicios.get(servicioId);
 	}
 
 	@Override

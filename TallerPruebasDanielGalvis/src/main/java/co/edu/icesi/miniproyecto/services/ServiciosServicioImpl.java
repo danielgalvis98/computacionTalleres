@@ -39,6 +39,25 @@ public class ServiciosServicioImpl implements ServiciosServicio{
 			throw new NullPointerException("El servicio no puede ser nulo");
 		}
 		
+		if (servicio.getTmio1Conductore() == null) {
+			throw new Exception("El conductor debe de estar registrado");
+		}
+		
+		if (servicio.getId().getFechaFin().compareTo(servicio.getId().getFechaInicio()) < 0)
+			throw new Exception("La fecha de fin del servicio debe de ser "
+					+ "después de la fecha de inicio del servicio");
+		
+		Tmio1Conductore conductor = conductoresRepository.getConductor(servicio.getTmio1Conductore().getCedula());
+		
+		if (conductor == null) {
+			throw new Exception("El conductor debe de estar registrado");
+		}
+		
+		if (servicio.getId().getFechaInicio().compareTo(conductor.getFechaContratacion()) < 0) {
+			System.out.println(servicio.getId().getFechaInicio().toString());
+			throw new Exception("El conductor debe haber sido contratado antes de la fecha de inicio del servicio");			
+		}
+		
 		if (servicio.getTmio1Bus() == null) {
 			throw new Exception("El bus debe de estar registrado");
 		}
@@ -46,15 +65,6 @@ public class ServiciosServicioImpl implements ServiciosServicio{
 		Tmio1Bus bus = busesRepository.getBus(servicio.getTmio1Bus().getId()) ;
 		if (bus == null) {
 			throw new Exception("El bus debe de estar registrado");
-		}
-		
-		if (servicio.getTmio1Conductore() == null) {
-			throw new Exception("El conductor debe de estar registrado");
-		}
-		Tmio1Conductore conductor = conductoresRepository.getConductor(servicio.getTmio1Conductore().getCedula());
-		
-		if (conductor == null) {
-			throw new Exception("El conductor debe de estar registrado");
 		}
 		
 		if (servicio.getTmio1Ruta() == null) {

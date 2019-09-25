@@ -14,7 +14,7 @@ public class ConductoresRepositoryImpl implements ConductoresRepository{
 
 	@Override
 	public void addConductor(Tmio1Conductore conductor) {
-		// TODO Auto-generated method stub
+		conductores.put(conductor.getCedula(), conductor);
 		
 	}
 
@@ -32,8 +32,7 @@ public class ConductoresRepositoryImpl implements ConductoresRepository{
 
 	@Override
 	public Tmio1Conductore getConductor(String conductorCedula) {
-		// TODO Auto-generated method stub
-		return null;
+		return conductores.get(conductorCedula);
 	}
 
 	@Override

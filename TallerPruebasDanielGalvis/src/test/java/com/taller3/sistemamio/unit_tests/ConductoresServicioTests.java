@@ -36,8 +36,8 @@ public class ConductoresServicioTests {
 		Tmio1Conductore conductor = new Tmio1Conductore();
 		conductor.setCedula("1");
 		conductor.setApellidos("a");
-		conductor.setFechaNacimiento((new SimpleDateFormat("dd/MM/yyyy")).parse("09/22/1980"));
-		conductor.setFechaContratacion((new SimpleDateFormat("dd/MM/yyyy")).parse("09/22/2019"));
+		conductor.setFechaNacimiento((new SimpleDateFormat("MM/dd/yyyy")).parse("09/22/1980"));
+		conductor.setFechaContratacion((new SimpleDateFormat("MM/dd/yyyy")).parse("09/22/2019"));
 		conductor.setNombre("Arroyo");
 		
 		service.addConductor(conductor);
@@ -52,8 +52,8 @@ public class ConductoresServicioTests {
 		Tmio1Conductore conductor = new Tmio1Conductore();
 		conductor.setCedula("1");
 		conductor.setApellidos("a");
-		conductor.setFechaNacimiento((new SimpleDateFormat("dd/MM/yyyy")).parse("09/22/2019"));
-		conductor.setFechaContratacion((new SimpleDateFormat("dd/MM/yyyy")).parse("09/22/1980"));
+		conductor.setFechaNacimiento((new SimpleDateFormat("MM/dd/yyyy")).parse("09/22/2019"));
+		conductor.setFechaContratacion((new SimpleDateFormat("MM/dd/yyyy")).parse("09/22/1980"));
 		conductor.setNombre("Arroyo");
 		
 		service.addConductor(conductor);

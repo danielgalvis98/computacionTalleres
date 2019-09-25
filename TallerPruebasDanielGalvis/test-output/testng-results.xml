@@ -1,37 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="2395" started-at="2019-09-25T00:29:38Z" finished-at="2019-09-25T00:29:41Z">
+  <suite name="Default suite" duration-ms="297" started-at="2019-09-25T02:35:40Z" finished-at="2019-09-25T02:35:40Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="2395" started-at="2019-09-25T00:29:38Z" finished-at="2019-09-25T00:29:41Z">
-      <class name="com.taller3.sistemamio.unit_tests.ServiciosServicioTest">
-        <test-method status="PASS" signature="instantiateRelationships()[pri:0, instance:com.taller3.sistemamio.unit_tests.ServiciosServicioTest@47c62251]" name="instantiateRelationships" is-config="true" duration-ms="105" started-at="2019-09-25T00:29:39Z" finished-at="2019-09-25T00:29:39Z">
+    <test name="Default test" duration-ms="297" started-at="2019-09-25T02:35:40Z" finished-at="2019-09-25T02:35:40Z">
+      <class name="com.taller3.sistemamio.integration_tests.ServiciosServicioTest">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.taller3.sistemamio.integration_tests.ServiciosServicioTest@47c62251]" name="init" is-config="true" duration-ms="103" started-at="2019-09-25T02:35:40Z" finished-at="2019-09-25T02:35:40Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- instantiateRelationships -->
-        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.ServiciosServicioTest@47c62251]" name="initMock" is-config="true" duration-ms="2058" started-at="2019-09-25T00:29:39Z" finished-at="2019-09-25T00:29:41Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initMock -->
-        <test-method status="PASS" signature="testAddServiceCorect()[pri:0, instance:com.taller3.sistemamio.unit_tests.ServiciosServicioTest@47c62251]" name="testAddServiceCorect" duration-ms="66" started-at="2019-09-25T00:29:41Z" finished-at="2019-09-25T00:29:41Z">
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="testAddServiceCorect()[pri:0, instance:com.taller3.sistemamio.integration_tests.ServiciosServicioTest@47c62251]" name="testAddServiceCorect" duration-ms="27" started-at="2019-09-25T02:35:40Z" finished-at="2019-09-25T02:35:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testAddServiceCorect -->
-        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.ServiciosServicioTest@47c62251]" name="initMock" is-config="true" duration-ms="11" started-at="2019-09-25T00:29:41Z" finished-at="2019-09-25T00:29:41Z">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.taller3.sistemamio.integration_tests.ServiciosServicioTest@47c62251]" name="init" is-config="true" duration-ms="2" started-at="2019-09-25T02:35:40Z" finished-at="2019-09-25T02:35:40Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- initMock -->
-        <test-method status="PASS" signature="testAddServiceNull()[pri:0, instance:com.taller3.sistemamio.unit_tests.ServiciosServicioTest@47c62251]" name="testAddServiceNull" duration-ms="6" started-at="2019-09-25T00:29:41Z" finished-at="2019-09-25T00:29:41Z">
-          <exception class="java.lang.NullPointerException">
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="testAddServiceNullBus()[pri:0, instance:com.taller3.sistemamio.integration_tests.ServiciosServicioTest@47c62251]" name="testAddServiceNullBus" duration-ms="5" started-at="2019-09-25T02:35:40Z" finished-at="2019-09-25T02:35:40Z">
+          <exception class="java.lang.Exception">
             <message>
-              <![CDATA[El servicio no puede ser nulo]]>
+              <![CDATA[El bus debe de estar registrado]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException: El servicio no puede ser nulo
-at co.edu.icesi.miniproyecto.services.ServiciosServicioImpl.addServicio(ServiciosServicioImpl.java:39)
-at com.taller3.sistemamio.unit_tests.ServiciosServicioTest.testAddServiceNull(ServiciosServicioTest.java:217)
+              <![CDATA[java.lang.Exception: El bus debe de estar registrado
+at co.edu.icesi.miniproyecto.services.ServiciosServicioImpl.addServicio(ServiciosServicioImpl.java:67)
+at com.taller3.sistemamio.integration_tests.ServiciosServicioTest.testAddServiceNullBus(ServiciosServicioTest.java:164)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -59,35 +55,99 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testAddServiceNull -->
-        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.ServiciosServicioTest@47c62251]" name="initMock" is-config="true" duration-ms="5" started-at="2019-09-25T00:29:41Z" finished-at="2019-09-25T00:29:41Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initMock -->
-        <test-method status="PASS" signature="testAddServiceNullBus()[pri:0, instance:com.taller3.sistemamio.unit_tests.ServiciosServicioTest@47c62251]" name="testAddServiceNullBus" duration-ms="10" started-at="2019-09-25T00:29:41Z" finished-at="2019-09-25T00:29:41Z">
+          </exception> <!-- java.lang.Exception -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testAddServiceNullBus -->
-        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.ServiciosServicioTest@47c62251]" name="initMock" is-config="true" duration-ms="5" started-at="2019-09-25T00:29:41Z" finished-at="2019-09-25T00:29:41Z">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.taller3.sistemamio.integration_tests.ServiciosServicioTest@47c62251]" name="init" is-config="true" duration-ms="3" started-at="2019-09-25T02:35:40Z" finished-at="2019-09-25T02:35:40Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- initMock -->
-        <test-method status="PASS" signature="testAddServiceNullConductor()[pri:0, instance:com.taller3.sistemamio.unit_tests.ServiciosServicioTest@47c62251]" name="testAddServiceNullConductor" duration-ms="8" started-at="2019-09-25T00:29:41Z" finished-at="2019-09-25T00:29:41Z">
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="testAddServiceNullConductor()[pri:0, instance:com.taller3.sistemamio.integration_tests.ServiciosServicioTest@47c62251]" name="testAddServiceNullConductor" duration-ms="4" started-at="2019-09-25T02:35:40Z" finished-at="2019-09-25T02:35:40Z">
+          <exception class="java.lang.Exception">
+            <message>
+              <![CDATA[El conductor debe de estar registrado]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Exception: El conductor debe de estar registrado
+at co.edu.icesi.miniproyecto.services.ServiciosServicioImpl.addServicio(ServiciosServicioImpl.java:53)
+at com.taller3.sistemamio.integration_tests.ServiciosServicioTest.testAddServiceNullConductor(ServiciosServicioTest.java:177)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Exception -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testAddServiceNullConductor -->
-        <test-method status="PASS" signature="initMock()[pri:0, instance:com.taller3.sistemamio.unit_tests.ServiciosServicioTest@47c62251]" name="initMock" is-config="true" duration-ms="8" started-at="2019-09-25T00:29:41Z" finished-at="2019-09-25T00:29:41Z">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.taller3.sistemamio.integration_tests.ServiciosServicioTest@47c62251]" name="init" is-config="true" duration-ms="5" started-at="2019-09-25T02:35:40Z" finished-at="2019-09-25T02:35:40Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- initMock -->
-        <test-method status="PASS" signature="testAddServiceNullRuta()[pri:0, instance:com.taller3.sistemamio.unit_tests.ServiciosServicioTest@47c62251]" name="testAddServiceNullRuta" duration-ms="6" started-at="2019-09-25T00:29:41Z" finished-at="2019-09-25T00:29:41Z">
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="testAddServiceNullRuta()[pri:0, instance:com.taller3.sistemamio.integration_tests.ServiciosServicioTest@47c62251]" name="testAddServiceNullRuta" duration-ms="4" started-at="2019-09-25T02:35:40Z" finished-at="2019-09-25T02:35:40Z">
+          <exception class="java.lang.Exception">
+            <message>
+              <![CDATA[La ruta debe de estar registrada]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Exception: La ruta debe de estar registrada
+at co.edu.icesi.miniproyecto.services.ServiciosServicioImpl.addServicio(ServiciosServicioImpl.java:76)
+at com.taller3.sistemamio.integration_tests.ServiciosServicioTest.testAddServiceNullRuta(ServiciosServicioTest.java:189)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Exception -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testAddServiceNullRuta -->
-      </class> <!-- com.taller3.sistemamio.unit_tests.ServiciosServicioTest -->
+      </class> <!-- com.taller3.sistemamio.integration_tests.ServiciosServicioTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

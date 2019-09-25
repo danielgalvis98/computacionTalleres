@@ -14,7 +14,7 @@ public class BusesRepositoryImpl implements BusesRepository{
 
 	@Override
 	public void addBus(Tmio1Bus bus) {
-		// TODO Auto-generated method stub
+		buses.put(bus.getId(), bus);
 		
 	}
 
@@ -32,8 +32,7 @@ public class BusesRepositoryImpl implements BusesRepository{
 
 	@Override
 	public Tmio1Bus getBus(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return buses.get(id);
 	}
 
 	@Override

@@ -14,7 +14,7 @@ public class RutasRepositoryImpl implements RutasRepository{
 	
 	@Override
 	public void addRuta(Tmio1Ruta ruta) {
-		
+		rutas.put(ruta.getId(), ruta);
 		
 	}
 
@@ -31,8 +31,7 @@ public class RutasRepositoryImpl implements RutasRepository{
 
 	@Override
 	public Tmio1Ruta getRutas(int rutaId) {
-		// TODO Auto-generated method stub
-		return null;
+		return rutas.get(rutaId);
 	}
 
 	@Override
