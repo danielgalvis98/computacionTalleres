@@ -1,20 +1,14 @@
 package com.taller3.sistemamio.integration_tests;
 
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.testng.Assert.assertEquals;
 
 import java.math.BigDecimal;
 
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import co.edu.icesi.miniproyecto.model.Tmio1Ruta;
-import co.edu.icesi.miniproyecto.repository.BusesRepositoryImpl;
 import co.edu.icesi.miniproyecto.repository.RutasRepository;
 import co.edu.icesi.miniproyecto.repository.RutasRepositoryImpl;
 import co.edu.icesi.miniproyecto.services.RutasServicioImpl;
