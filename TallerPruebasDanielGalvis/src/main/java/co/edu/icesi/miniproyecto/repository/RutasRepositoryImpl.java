@@ -1,43 +1,63 @@
 package co.edu.icesi.miniproyecto.repository;
 
-import java.util.HashMap;
+import java.math.BigDecimal;
 import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 
 import co.edu.icesi.miniproyecto.model.Tmio1Ruta;
 
 @Repository
-public class RutasRepositoryImpl implements RutasRepository{
+public class RutasRepositoryImpl implements RutasRepository {
 
-	HashMap<Integer, Tmio1Ruta> rutas = new HashMap<>();
-	
+	@PersistenceContext
+	private EntityManager entityManager;
 	@Override
-	public void addRuta(Tmio1Ruta ruta) {
-		rutas.put(ruta.getId(), ruta);
-		
+	public void save(Tmio1Ruta ruta) {
+		entityManager.persist(ruta);
+
 	}
 
 	@Override
-	public Tmio1Ruta removeRuta(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Tmio1Ruta findById(int id) {
+		return entityManager.find(Tmio1Ruta.class, id);
 	}
 
 	@Override
-	public void setRuta(Tmio1Ruta ruta) {
-		
+	public Iterable<Tmio1Ruta> findAll() {
+		String jpql = "SELECT a FROM Tmio1Ruta a";
+		return entityManager.createQuery(jpql).getResultList();
 	}
 
 	@Override
-	public Tmio1Ruta getRutas(int rutaId) {
-		return rutas.get(rutaId);
+	public void update(Tmio1Ruta ruta) {
+		entityManager.merge(ruta);
+
 	}
 
 	@Override
-	public List<Tmio1Ruta> getAllRutas() {
-		// TODO Auto-generated method stub
-		return null;
+	public void delete(Tmio1Ruta ruta) {
+		entityManager.remove(ruta);
+
+	}
+
+	@Override
+	public List<Tmio1Ruta> findByHours(BigDecimal horaInicio, BigDecimal horaFin) {
+		String jpql = "SELECT a FROM Tmio1Ruta a WHERE a.horaInicio >=:horaInicio"
+				+ " AND a.horaFin <=:horaFin";
+		return entityManager.createQuery(jpql).setParameter("horaInicio", horaInicio)
+				.setParameter("horaFin", horaFin).getResultList();
+	}
+
+	@Override
+	public List<Tmio1Ruta> findByDates(BigDecimal diaInicio, BigDecimal diaFin) {
+		String jpql = "SELECT a FROM Tmio1Ruta a WHERE a.diaInicio >=:diaInicio"
+				+ " AND a.diaFin <=:diaFin";
+		return entityManager.createQuery(jpql).setParameter("diaInicio", diaInicio)
+				.setParameter("diaFin", diaFin).getResultList();
 	}
 
 }

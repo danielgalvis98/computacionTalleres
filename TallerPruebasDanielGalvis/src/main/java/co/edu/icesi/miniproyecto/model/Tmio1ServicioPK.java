@@ -1,33 +1,46 @@
 package co.edu.icesi.miniproyecto.model;
 
 import java.io.Serializable;
-//import javax.persistence.*;
+import java.time.LocalDate;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import co.edu.icesi.miniproyecto.validation.ValidateDate;
 
 /**
  * The primary key class for the tmio1_servicios database table.
  * 
  */
-//@Embeddable
+@Embeddable
 public class Tmio1ServicioPK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-//	@Column(name="id_ruta", insertable=false, updatable=false)
+	@NotNull
+	@Column(name="id_ruta", insertable=false, updatable=false)
 	private Integer idRuta;
 
-//	@Column(name="cedula_conductor", insertable=false, updatable=false)
+	@NotNull
+	@Column(name="cedula_conductor", insertable=false, updatable=false)
 	private String cedulaConductor;
 
-//	@Column(name="id_bus", insertable=false, updatable=false)
+	@NotNull
+	@Column(name="id_bus", insertable=false, updatable=false)
 	private Integer idBus;
 
-//	@Temporal(TemporalType.DATE)
-//	@Column(name="fecha_inicio")
-	private java.util.Date fechaInicio;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@NotNull(groups = ValidateDate.class)
+	@NotNull
+	@Column(name="fecha_inicio")
+	private LocalDate fechaInicio;
 
-//	@Temporal(TemporalType.DATE)
-//	@Column(name="fecha_fin")
-	private java.util.Date fechaFin;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@NotNull
+	@Column(name="fecha_fin")
+	private LocalDate fechaFin;
 
 	public Tmio1ServicioPK() {
 	}
@@ -49,16 +62,16 @@ public class Tmio1ServicioPK implements Serializable {
 	public void setIdBus(Integer idBus) {
 		this.idBus = idBus;
 	}
-	public java.util.Date getFechaInicio() {
+	public LocalDate getFechaInicio() {
 		return this.fechaInicio;
 	}
-	public void setFechaInicio(java.util.Date fechaInicio) {
+	public void setFechaInicio(LocalDate fechaInicio) {
 		this.fechaInicio = fechaInicio;
 	}
-	public java.util.Date getFechaFin() {
+	public LocalDate getFechaFin() {
 		return this.fechaFin;
 	}
-	public void setFechaFin(java.util.Date fechaFin) {
+	public void setFechaFin(LocalDate fechaFin) {
 		this.fechaFin = fechaFin;
 	}
 

@@ -16,5 +16,5 @@ public interface BusesServicio {
 	
 	public Tmio1Bus getBus (int ind);
 	
-	public List<Tmio1Bus> getAllBuses();
+	public Iterable<Tmio1Bus> getAllBuses();
 }

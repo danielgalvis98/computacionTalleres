@@ -15,5 +15,5 @@ public interface ConductoresServicio {
 	
 	public Tmio1Conductore getConductor(String cedula);
 	
-	public List<Tmio1Conductore> getAllConductores();
+	public Iterable<Tmio1Conductore> getAllConductores();
 }

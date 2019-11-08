@@ -1,21 +1,21 @@
 package co.edu.icesi.miniproyecto.model;
 
 import java.io.Serializable;
-//import javax.persistence.*;
+import javax.persistence.*;
 
 /**
  * The primary key class for the tmio1_sitios_rutas database table.
  * 
  */
-//@Embeddable
+@Embeddable
 public class Tmio1SitiosRutaPK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-//	@Column(name="id_sitio", insertable=false, updatable=false)
+	@Column(name="id_sitio", insertable=false, updatable=false)
 	private Integer idSitio;
 
-//	@Column(name="id_ruta", insertable=false, updatable=false)
+	@Column(name="id_ruta", insertable=false, updatable=false)
 	private Integer idRuta;
 
 	public Tmio1SitiosRutaPK() {

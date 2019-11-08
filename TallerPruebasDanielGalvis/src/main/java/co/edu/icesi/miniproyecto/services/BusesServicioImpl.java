@@ -24,8 +24,7 @@ public class BusesServicioImpl implements BusesServicio{
 		if (bus == null) {
 			throw new NullPointerException("El bus no puede ser nulo");
 		}
-		busRepo.addBus(bus);
-		
+		busRepo.save(bus);
 	}
 
 	@Override
@@ -41,15 +40,14 @@ public class BusesServicioImpl implements BusesServicio{
 	}
 
 	@Override
-	public Tmio1Bus getBus(int ind) {
-		// TODO Auto-generated method stub
-		return null;
+	public Tmio1Bus getBus(int id) {
+		return busRepo.findById(id);
 	}
 
 	@Override
-	public List<Tmio1Bus> getAllBuses() {
+	public Iterable<Tmio1Bus> getAllBuses() {
 		// TODO Auto-generated method stub
-		return null;
+		return busRepo.findAll();
 	}
 
 	

@@ -1,19 +1,11 @@
 package co.edu.icesi.miniproyecto.repository;
 
-import java.util.List;
-
+import org.springframework.data.repository.CrudRepository;
 import co.edu.icesi.miniproyecto.model.Tmio1Ruta;
 import co.edu.icesi.miniproyecto.model.Tmio1Servicio;
+import co.edu.icesi.miniproyecto.model.Tmio1ServicioPK;
 
-public interface ServiciosRepository {
 
-	public void addServicio (Tmio1Servicio servicio);
-	
-	public Tmio1Servicio removeServicio (Tmio1Servicio servicio);
-	
-	public void setServicio (Tmio1Servicio servicio);
-	
-	public Tmio1Servicio getServicio(String servicioId);
-	
-	public List<Tmio1Servicio> getAllServicios();
+public interface ServiciosRepository extends CrudRepository<Tmio1Servicio, Tmio1ServicioPK> {
+
 }

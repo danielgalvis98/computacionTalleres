@@ -1,33 +1,33 @@
 package co.edu.icesi.miniproyecto.model;
 
 import java.io.Serializable;
-//import javax.persistence.*;
+import javax.persistence.*;
 
 /**
  * The primary key class for the tmio1_servicios_sitios database table.
  * 
  */
-//@Embeddable
+@Embeddable
 public class Tmio1ServiciosSitioPK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-//	@Column(name="id_ruta", insertable=false, updatable=false)
+	@Column(name="id_ruta", insertable=false, updatable=false)
 	private Integer idRuta;
 
-//	@Column(name="id_sitios", insertable=false, updatable=false)
+	@Column(name="id_sitios", insertable=false, updatable=false)
 	private Integer idSitios;
 
-//	@Column(name="cedula_conductor", insertable=false, updatable=false)
+	@Column(name="cedula_conductor", insertable=false, updatable=false)
 	private String cedulaConductor;
 
-//	@Column(name="id_bus", insertable=false, updatable=false)
+	@Column(name="id_bus", insertable=false, updatable=false)
 	private Integer idBus;
 
-//	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.DATE)
 	private java.util.Date fecha;
 
-//	@Column(name="hora_programada")
+	@Column(name="hora_programada")
 	private long horaProgramada;
 
 	public Tmio1ServiciosSitioPK() {

@@ -15,5 +15,5 @@ public interface RutasServicio {
 	
 	public Tmio1Ruta getRuta (int id);
 	
-	public List<Tmio1Ruta> getAllRutas();
+	public Iterable<Tmio1Ruta> getAllRutas();
 }

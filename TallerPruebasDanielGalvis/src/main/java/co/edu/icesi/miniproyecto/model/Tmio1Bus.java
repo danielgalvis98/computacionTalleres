@@ -1,42 +1,55 @@
 package co.edu.icesi.miniproyecto.model;
 
 import java.io.Serializable;
-//import javax.persistence.*;
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+
 import java.math.BigDecimal;
 import java.util.List;
+
+
 
 
 /**
  * The persistent class for the tmio1_buses database table.
  * 
  */
-//@Entity
-//@Table(name="tmio1_buses")
-//@NamedQuery(name="Tmio1Bus.findAll", query="SELECT t FROM Tmio1Bus t")
+@Entity
+@Table(name="tmio1_buses")
+@NamedQuery(name="Tmio1Bus.findAll", query="SELECT t FROM Tmio1Bus t")
 public class Tmio1Bus implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-//	@Id
-//	@SequenceGenerator(name="TMIO1_BUSES_ID_GENERATOR", sequenceName="TMIO1_BUSES_SEQ")
-//	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="TMIO1_BUSES_ID_GENERATOR")
+	@Id
+	@SequenceGenerator(name="TMIO1_BUSES_ID_GENERATOR", sequenceName="TMIO1_BUSES_SEQ")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="TMIO1_BUSES_ID_GENERATOR")
 	private Integer id;
 
+	@NotNull
+	@Positive
 	private BigDecimal capacidad;
 
+	@NotBlank
 	private String marca;
 
+	@NotNull
+	@Positive
 	private BigDecimal modelo;
 
+	@NotBlank
 	private String placa;
 
+	@NotBlank
 	private String tipo;
 
 	//bi-directional many-to-one association to Tmio1Servicio
-//	@OneToMany(mappedBy="tmio1Bus")
+	@OneToMany(mappedBy="tmio1Bus")
 	private List<Tmio1Servicio> tmio1Servicios;
 
 	//bi-directional many-to-one association to Tmio1ServiciosSitio
-//	@OneToMany(mappedBy="tmio1Bus")
+	@OneToMany(mappedBy="tmio1Bus")
 	private List<Tmio1ServiciosSitio> tmio1ServiciosSitios;
 
 	public Tmio1Bus() {

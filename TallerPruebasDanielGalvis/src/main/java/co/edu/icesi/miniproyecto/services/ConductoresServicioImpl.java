@@ -27,7 +27,7 @@ public class ConductoresServicioImpl implements ConductoresServicio{
 		if (conductor.getFechaContratacion().compareTo(conductor.getFechaNacimiento()) <= 0)
 			throw new Exception("Un conductor no puede ser contratado antes de su fecha de nacimiento");
 		
-		repository.addConductor(conductor);
+		repository.save(conductor);
 		
 		
 	}
@@ -46,14 +46,13 @@ public class ConductoresServicioImpl implements ConductoresServicio{
 
 	@Override
 	public Tmio1Conductore getConductor(String cedula) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findById(cedula);
 	}
 
 	@Override
-	public List<Tmio1Conductore> getAllConductores() {
+	public Iterable<Tmio1Conductore> getAllConductores() {
 		// TODO Auto-generated method stub
-		return null;
+		return repository.findAll();
 	}
 
 

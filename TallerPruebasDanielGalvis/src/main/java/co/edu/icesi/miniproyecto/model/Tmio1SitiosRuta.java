@@ -1,40 +1,40 @@
 package co.edu.icesi.miniproyecto.model;
 
 import java.io.Serializable;
-//import javax.persistence.*;
+import javax.persistence.*;
 
 
 /**
  * The persistent class for the tmio1_sitios_rutas database table.
  * 
  */
-//@Entity
-//@Table(name="tmio1_sitios_rutas")
-//@NamedQuery(name="Tmio1SitiosRuta.findAll", query="SELECT t FROM Tmio1SitiosRuta t")
+@Entity
+@Table(name="tmio1_sitios_rutas")
+@NamedQuery(name="Tmio1SitiosRuta.findAll", query="SELECT t FROM Tmio1SitiosRuta t")
 public class Tmio1SitiosRuta implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-//	@EmbeddedId
+	@EmbeddedId
 	private Tmio1SitiosRutaPK id;
 
 	//bi-directional many-to-one association to Tmio1Ruta
-//	@ManyToOne
-//	@JoinColumn(name="id_ruta", insertable=false, updatable=false)
+	@ManyToOne
+	@JoinColumn(name="id_ruta", insertable=false, updatable=false)
 	private Tmio1Ruta tmio1Ruta1;
 
 	//bi-directional many-to-one association to Tmio1Ruta
-//	@ManyToOne
-//	@JoinColumn(name="id_sitio", insertable=false, updatable=false)
+	@ManyToOne
+	@JoinColumn(name="id_sitio", insertable=false, updatable=false)
 	private Tmio1Ruta tmio1Ruta2;
 
 	//bi-directional many-to-one association to Tmio1Sitio
-//	@ManyToOne
-//	@JoinColumn(name="id_sitio", insertable=false, updatable=false)
+	@ManyToOne
+	@JoinColumn(name="id_sitio", insertable=false, updatable=false)
 	private Tmio1Sitio tmio1Sitio1;
 
 	//bi-directional many-to-one association to Tmio1Sitio
-//	@ManyToOne
-//	@JoinColumn(name="id_sitio", insertable=false, updatable=false)
+	@ManyToOne
+	@JoinColumn(name="id_sitio", insertable=false, updatable=false)
 	private Tmio1Sitio tmio1Sitio2;
 
 	public Tmio1SitiosRuta() {

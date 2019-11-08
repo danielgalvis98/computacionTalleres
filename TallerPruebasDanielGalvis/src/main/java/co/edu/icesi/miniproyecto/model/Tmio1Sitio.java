@@ -1,7 +1,7 @@
 package co.edu.icesi.miniproyecto.model;
 
 import java.io.Serializable;
-//import javax.persistence.*;
+import javax.persistence.*;
 import java.util.List;
 
 
@@ -9,15 +9,15 @@ import java.util.List;
  * The persistent class for the tmio1_sitios database table.
  * 
  */
-//@Entity
-//@Table(name="tmio1_sitios")
-//@NamedQuery(name="Tmio1Sitio.findAll", query="SELECT t FROM Tmio1Sitio t")
+@Entity
+@Table(name="tmio1_sitios")
+@NamedQuery(name="Tmio1Sitio.findAll", query="SELECT t FROM Tmio1Sitio t")
 public class Tmio1Sitio implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-//	@Id
-//	@SequenceGenerator(name="TMIO1_SITIOS_ID_GENERATOR", sequenceName="TMIO1_SITIOS_SEQ")
-//	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="TMIO1_SITIOS_ID_GENERATOR")
+	@Id
+	@SequenceGenerator(name="TMIO1_SITIOS_ID_GENERATOR", sequenceName="TMIO1_SITIOS_SEQ")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="TMIO1_SITIOS_ID_GENERATOR")
 	private long id;
 
 	private String descripcion;
@@ -25,15 +25,15 @@ public class Tmio1Sitio implements Serializable {
 	private String nombre;
 
 	//bi-directional many-to-one association to Tmio1ServiciosSitio
-//	@OneToMany(mappedBy="tmio1Sitio")
+	@OneToMany(mappedBy="tmio1Sitio")
 	private List<Tmio1ServiciosSitio> tmio1ServiciosSitios;
 
 	//bi-directional many-to-one association to Tmio1SitiosRuta
-//	@OneToMany(mappedBy="tmio1Sitio1")
+	@OneToMany(mappedBy="tmio1Sitio1")
 	private List<Tmio1SitiosRuta> tmio1SitiosRutas1;
 
 	//bi-directional many-to-one association to Tmio1SitiosRuta
-//	@OneToMany(mappedBy="tmio1Sitio2")
+	@OneToMany(mappedBy="tmio1Sitio2")
 	private List<Tmio1SitiosRuta> tmio1SitiosRutas2;
 
 	public Tmio1Sitio() {

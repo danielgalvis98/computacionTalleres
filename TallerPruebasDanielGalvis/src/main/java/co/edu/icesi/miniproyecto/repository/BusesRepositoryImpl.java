@@ -1,44 +1,70 @@
 package co.edu.icesi.miniproyecto.repository;
 
-import java.util.HashMap;
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
 import co.edu.icesi.miniproyecto.model.Tmio1Bus;
 
 @Repository
 public class BusesRepositoryImpl implements BusesRepository{
-
-	HashMap<Integer, Tmio1Bus> buses = new HashMap<>();
+	
+	@PersistenceContext
+	private EntityManager entityManager;
 
 	@Override
-	public void addBus(Tmio1Bus bus) {
-		buses.put(bus.getId(), bus);
+	public void save(Tmio1Bus bus) {
+		entityManager.persist(bus);
+		
+	}
+
+
+	@Override
+	public Tmio1Bus findById(int id) {
+		return entityManager.find(Tmio1Bus.class, id);
+	}
+
+	@Override
+	public void update(Tmio1Bus bus) {
+		entityManager.merge(bus);
+	}
+
+	@Override
+	public void delete(Tmio1Bus bus) {
+		entityManager.remove(bus);
 		
 	}
 
 	@Override
-	public void setBus(Tmio1Bus bus) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Tmio1Bus removeBus(Tmio1Bus bus) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Tmio1Bus getBus(int id) {
-		return buses.get(id);
-	}
-
-	@Override
-	public List<Tmio1Bus> getAllBuses() {
-		// TODO Auto-generated method stub
-		return null;
+	public Tmio1Bus findByPlaca(String placa) {
+		String jpql = "Select a from Tmio1Bus a where a.placa =:placa";
+		return (Tmio1Bus) entityManager.createQuery(jpql).setParameter("placa", placa).getSingleResult();
 	}
 	
+	@Override
+	public List<Tmio1Bus> findByMarca(String marca) {
+		String jpql = "Select a from Tmio1Bus a where a.marca =:marca";
+		return entityManager.createQuery(jpql).setParameter("marca", marca).getResultList();
+	}
+
+	@Override
+	public List<Tmio1Bus> findByModelo(BigDecimal modelo) {
+		String jpql = "Select a from Tmio1Bus a where a.modelo =:modelo";
+		return entityManager.createQuery(jpql).setParameter("modelo", modelo).getResultList();
+	}
+
+	@Override
+	public Iterable<Tmio1Bus> findAll() {
+		String jpql = "Select a from Tmio1Bus a";
+		return entityManager.createQuery(jpql).getResultList();
+	}
+	
+	
+
 }

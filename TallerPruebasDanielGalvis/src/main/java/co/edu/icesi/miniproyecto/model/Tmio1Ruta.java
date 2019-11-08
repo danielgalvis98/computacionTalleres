@@ -1,7 +1,14 @@
 package co.edu.icesi.miniproyecto.model;
 
 import java.io.Serializable;
-//import javax.persistence.*;
+import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import lombok.NonNull;
+
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -10,49 +17,65 @@ import java.util.List;
  * The persistent class for the tmio1_rutas database table.
  * 
  */
-//@Entity
-//@Table(name="tmio1_rutas")
-//@NamedQuery(name="Tmio1Ruta.findAll", query="SELECT t FROM Tmio1Ruta t")
+@Entity
+@Table(name="tmio1_rutas")
+@NamedQuery(name="Tmio1Ruta.findAll", query="SELECT t FROM Tmio1Ruta t")
 public class Tmio1Ruta implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-//	@Id
-//	@SequenceGenerator(name="TMIO1_RUTAS_ID_GENERATOR", sequenceName="TMIO1_RUTAS_SEQ")
-//	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="TMIO1_RUTAS_ID_GENERATOR")
+	@Id
+	@SequenceGenerator(name="TMIO1_RUTAS_ID_GENERATOR", sequenceName="TMIO1_RUTAS_SEQ")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="TMIO1_RUTAS_ID_GENERATOR")
 	private Integer id;
 
+	@NotBlank
 	private String activa;
 
+	@NotBlank
 	private String descripcion;
 
-//	@Column(name="dia_fin")
+	@Column(name="dia_fin")
+	@Max(7)
+	@Min(1)
+	@NotNull
 	private BigDecimal diaFin;
 
-//	@Column(name="dia_inicio")
+	@Column(name="dia_inicio")
+	@Max(7)
+	@Min(1)
+	@NotNull
 	private BigDecimal diaInicio;
 
-//	@Column(name="hora_fin")
+	@Column(name="hora_fin")
+	@Max(86400)
+	@Min(1)
+	@NotNull
 	private BigDecimal horaFin;
 
-//	@Column(name="hora_inicio")
+	@Column(name="hora_inicio")
+	@Max(86400)
+	@Min(1)
+	@NotNull
 	private BigDecimal horaInicio;
 
+	@NonNull
+	@NotBlank
 	private String numero;
 
 	//bi-directional many-to-one association to Tmio1Servicio
-//	@OneToMany(mappedBy="tmio1Ruta")
+	@OneToMany(mappedBy="tmio1Ruta")
 	private List<Tmio1Servicio> tmio1Servicios;
 
 	//bi-directional many-to-one association to Tmio1ServiciosSitio
-//	@OneToMany(mappedBy="tmio1Ruta")
+	@OneToMany(mappedBy="tmio1Ruta")
 	private List<Tmio1ServiciosSitio> tmio1ServiciosSitios;
 
 	//bi-directional many-to-one association to Tmio1SitiosRuta
-//	@OneToMany(mappedBy="tmio1Ruta1")
+	@OneToMany(mappedBy="tmio1Ruta1")
 	private List<Tmio1SitiosRuta> tmio1SitiosRutas1;
 
 	//bi-directional many-to-one association to Tmio1SitiosRuta
-//	@OneToMany(mappedBy="tmio1Ruta2")
+	@OneToMany(mappedBy="tmio1Ruta2")
 	private List<Tmio1SitiosRuta> tmio1SitiosRutas2;
 
 	public Tmio1Ruta() {

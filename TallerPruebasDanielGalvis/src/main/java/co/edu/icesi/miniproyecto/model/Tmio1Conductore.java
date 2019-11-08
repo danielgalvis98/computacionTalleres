@@ -1,7 +1,16 @@
 package co.edu.icesi.miniproyecto.model;
 
 import java.io.Serializable;
-//import javax.persistence.*;
+import java.time.LocalDate;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
+
 import java.util.Date;
 import java.util.List;
 
@@ -10,33 +19,41 @@ import java.util.List;
  * The persistent class for the tmio1_conductores database table.
  * 
  */
-//@Entity
-//@Table(name="tmio1_conductores")
-//@NamedQuery(name="Tmio1Conductore.findAll", query="SELECT t FROM Tmio1Conductore t")
+@Entity
+@Table(name="tmio1_conductores")
+@NamedQuery(name="Tmio1Conductore.findAll", query="SELECT t FROM Tmio1Conductore t")
 public class Tmio1Conductore implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-//	@Id
+	@Id
+	@NotBlank
+	@NumberFormat
 	private String cedula;
 
+	@NotBlank
 	private String apellidos;
 
-//	@Temporal(TemporalType.DATE)
-//	@Column(name="fecha_contratacion")
-	private Date fechaContratacion;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Column(name="fecha_contratacion")
+	@Past
+	@NotNull
+	private LocalDate fechaContratacion;
 
-//	@Temporal(TemporalType.DATE)
-//	@Column(name="fecha_nacimiento")
-	private Date fechaNacimiento;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Column(name="fecha_nacimiento")
+	@Past
+	@NotNull
+	private LocalDate fechaNacimiento;
 
+	@NotBlank
 	private String nombre;
 
 	//bi-directional many-to-one association to Tmio1Servicio
-//	@OneToMany(mappedBy="tmio1Conductore")
+	@OneToMany(mappedBy="tmio1Conductore")
 	private List<Tmio1Servicio> tmio1Servicios;
 
 	//bi-directional many-to-one association to Tmio1ServiciosSitio
-//	@OneToMany(mappedBy="tmio1Conductore")
+	@OneToMany(mappedBy="tmio1Conductore")
 	private List<Tmio1ServiciosSitio> tmio1ServiciosSitios;
 
 	public Tmio1Conductore() {
@@ -58,19 +75,19 @@ public class Tmio1Conductore implements Serializable {
 		this.apellidos = apellidos;
 	}
 
-	public Date getFechaContratacion() {
+	public LocalDate getFechaContratacion() {
 		return this.fechaContratacion;
 	}
 
-	public void setFechaContratacion(Date fechaContratacion) {
+	public void setFechaContratacion(LocalDate fechaContratacion) {
 		this.fechaContratacion = fechaContratacion;
 	}
 
-	public Date getFechaNacimiento() {
+	public LocalDate getFechaNacimiento() {
 		return this.fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(Date fechaNacimiento) {
+	public void setFechaNacimiento(LocalDate fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 

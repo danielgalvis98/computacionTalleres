@@ -30,7 +30,7 @@ public class RutasServicioImpl implements RutasServicio{
 		if (ruta.getHoraFin().compareTo(ruta.getHoraInicio()) < 0) {
 			throw new Exception("La hora de inicio ser menor la hora de fin");
 		}
-		repository.addRuta(ruta);
+		repository.save(ruta);
 	}
 
 	@Override
@@ -47,14 +47,13 @@ public class RutasServicioImpl implements RutasServicio{
 
 	@Override
 	public Tmio1Ruta getRuta(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findById(id);
 	}
 
 	@Override
-	public List<Tmio1Ruta> getAllRutas() {
+	public Iterable<Tmio1Ruta> getAllRutas() {
 		// TODO Auto-generated method stub
-		return null;
+		return repository.findAll();
 	}
 
 }
