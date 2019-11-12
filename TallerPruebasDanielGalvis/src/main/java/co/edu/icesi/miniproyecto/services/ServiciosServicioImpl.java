@@ -3,6 +3,8 @@ package co.edu.icesi.miniproyecto.services;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +37,9 @@ public class ServiciosServicioImpl implements ServiciosServicio{
 		conductoresRepository = conductoresRepo;
 		rutasRepository = rutasRepo;
 	}
+	
 	@Override
+	@Transactional
 	public void addServicio(Tmio1Servicio servicio) throws Exception {
 		if (servicio == null) {
 			throw new NullPointerException("El servicio no puede ser nulo");
@@ -82,27 +86,31 @@ public class ServiciosServicioImpl implements ServiciosServicio{
 	}
 
 	@Override
+	@Transactional
 	public Tmio1Servicio removeServicio(Tmio1Servicio servicio) {
 		repository.delete(servicio);
 		return servicio;
 	}
 
 	@Override
+	@Transactional
 	public void setServicio(Tmio1Servicio servicio) throws Exception {
-		Optional<Tmio1Servicio> serviceOpt= repository.findById(servicio.getId());
-		if (!serviceOpt.isPresent())
+		Tmio1Servicio serviceOpt= repository.findById(servicio.getId());
+		if (serviceOpt == null)
 			throw new Exception("No hay ningún servicio con ese id");
 		addServicio(servicio);
 		
 	}
 
 	@Override
-	public Optional<Tmio1Servicio> getServicio(Tmio1ServicioPK id) {
+	@Transactional
+	public Tmio1Servicio getServicio(Tmio1ServicioPK id) {
 		// TODO Auto-generated method stub
 		return repository.findById(id);
 	}
 
 	@Override
+	@Transactional
 	public Iterable<Tmio1Servicio> getAllServicios() {
 		// TODO Auto-generated method stub
 		return repository.findAll();

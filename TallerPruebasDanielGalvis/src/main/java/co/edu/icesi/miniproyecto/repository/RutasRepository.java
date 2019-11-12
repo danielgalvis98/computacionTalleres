@@ -1,6 +1,7 @@
 package co.edu.icesi.miniproyecto.repository;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
@@ -16,4 +17,5 @@ public interface RutasRepository {
 	public void delete (Tmio1Ruta ruta);
 	public List<Tmio1Ruta> findByHours(BigDecimal horaInicio, BigDecimal horaFin);
 	public List<Tmio1Ruta> findByDates(BigDecimal diaInicio, BigDecimal diafin);
+	public List<Tmio1Ruta> findByServiceDate (LocalDate date);
 }

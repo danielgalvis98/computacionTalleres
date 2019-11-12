@@ -3,6 +3,8 @@ package co.edu.icesi.miniproyecto.services;
 import java.math.BigDecimal;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,7 @@ public class BusesServicioImpl implements BusesServicio{
 	}
 	
 	@Override
+	@Transactional
 	public void addBus(Tmio1Bus bus) {
 		if (bus == null) {
 			throw new NullPointerException("El bus no puede ser nulo");
@@ -40,11 +43,13 @@ public class BusesServicioImpl implements BusesServicio{
 	}
 
 	@Override
+	@Transactional
 	public Tmio1Bus getBus(int id) {
 		return busRepo.findById(id);
 	}
 
 	@Override
+	@Transactional
 	public Iterable<Tmio1Bus> getAllBuses() {
 		// TODO Auto-generated method stub
 		return busRepo.findAll();

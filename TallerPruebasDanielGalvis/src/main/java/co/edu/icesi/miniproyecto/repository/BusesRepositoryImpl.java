@@ -64,6 +64,17 @@ public class BusesRepositoryImpl implements BusesRepository{
 		String jpql = "Select a from Tmio1Bus a";
 		return entityManager.createQuery(jpql).getResultList();
 	}
+
+
+	@Override
+	public List<Tmio1Bus> find2ServicesSameDay() {
+		String jpql = "SELECT b FROM Tmio1Bus b JOIN Tmio1Servicio s ON b.id = s.id.idBus "
+				+ "JOIN Tmio1Servicio c ON (b.id = c.id.idBus AND s.id != c.id) "
+				+ "WHERE (s.id.fechaInicio >= c.id.fechaInicio) OR (s.id.fechaFin <= c.id.fechaFin) "
+				+ "OR (s.id.fechaInicio < c.id.fechaInicio AND s.id.fechaFin > c.id.fechaFin) "
+				+ "GROUP BY b.id HAVING COUNT (s) > 1";
+		return entityManager.createQuery(jpql).getResultList();
+	}
 	
 	
 

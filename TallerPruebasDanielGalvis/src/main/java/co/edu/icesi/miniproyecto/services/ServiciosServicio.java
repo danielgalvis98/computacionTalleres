@@ -14,7 +14,7 @@ public interface ServiciosServicio {
 	
 	public void setServicio (Tmio1Servicio servicio) throws Exception;
 	
-	public Optional<Tmio1Servicio> getServicio (Tmio1ServicioPK id);
+	public Tmio1Servicio getServicio (Tmio1ServicioPK id);
 	
 	public Iterable<Tmio1Servicio> getAllServicios();
 }

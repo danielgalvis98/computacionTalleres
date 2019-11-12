@@ -18,6 +18,7 @@ public interface BusesRepository {
 	public void update(Tmio1Bus bus);
 	public void delete(Tmio1Bus bus);
 	public Iterable<Tmio1Bus> findAll();
+	public List<Tmio1Bus> find2ServicesSameDay();
 	
 
 }

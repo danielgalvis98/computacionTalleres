@@ -3,6 +3,8 @@ package co.edu.icesi.miniproyecto.services;
 import java.math.BigDecimal;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,7 @@ public class RutasServicioImpl implements RutasServicio{
 	}
 	
 	@Override
+	@Transactional
 	public void addRuta(Tmio1Ruta ruta) throws Exception {
 		if (ruta == null) {
 			throw new NullPointerException("La ruta no puede ser nula");
@@ -46,11 +49,13 @@ public class RutasServicioImpl implements RutasServicio{
 	}
 
 	@Override
+	@Transactional
 	public Tmio1Ruta getRuta(int id) {
 		return repository.findById(id);
 	}
 
 	@Override
+	@Transactional
 	public Iterable<Tmio1Ruta> getAllRutas() {
 		// TODO Auto-generated method stub
 		return repository.findAll();

@@ -109,11 +109,11 @@ public class ServiciosController {
 		key.setIdBus(idBus);
 		key.setIdRuta(idRuta);
 		
-		Optional<Tmio1Servicio> service = serviciosServicio.getServicio(key);
-		if (!service.isPresent())
+		Tmio1Servicio service = serviciosServicio.getServicio(key);
+		if (service == null)
 			throw new IllegalArgumentException("Combinacion de parametros invalida");
 		
-		model.addAttribute("tmio1ServicioPK", service.get().getId());
+		model.addAttribute("tmio1ServicioPK", service.getId());
 		
 		model.addAttribute("buses", busesServicio.getAllBuses());
 		model.addAttribute("conductores", conductoresServicio.getAllConductores());
@@ -156,7 +156,7 @@ public class ServiciosController {
 				service.setTmio1Ruta(rutasServicio.getRuta(servicePk.getIdRuta()));
 				try {
 					serviciosServicio.addServicio(service);
-					Tmio1Servicio oldService = serviciosServicio.getServicio(key).get();
+					Tmio1Servicio oldService = serviciosServicio.getServicio(key);
 					if (!servicePk.equals(key))
 						serviciosServicio.removeServicio(oldService);
 				} catch (Exception e) {

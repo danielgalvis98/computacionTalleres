@@ -6,6 +6,9 @@ import co.edu.icesi.miniproyecto.model.Tmio1Servicio;
 import co.edu.icesi.miniproyecto.model.Tmio1ServicioPK;
 
 
-public interface ServiciosRepository extends CrudRepository<Tmio1Servicio, Tmio1ServicioPK> {
-
+public interface ServiciosRepository{
+	public void save (Tmio1Servicio serv);
+	public Tmio1Servicio findById (Tmio1ServicioPK id);
+	public Iterable<Tmio1Servicio> findAll();
+	public void delete (Tmio1Servicio serv);
 }

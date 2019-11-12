@@ -1,6 +1,7 @@
 package co.edu.icesi.miniproyecto.repository;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -58,6 +59,14 @@ public class RutasRepositoryImpl implements RutasRepository {
 				+ " AND a.diaFin <=:diaFin";
 		return entityManager.createQuery(jpql).setParameter("diaInicio", diaInicio)
 				.setParameter("diaFin", diaFin).getResultList();
+	}
+
+	@Override
+	public List<Tmio1Ruta> findByServiceDate(LocalDate date) {
+		String jpql = "SELECT r FROM Tmio1Ruta r JOIN Tmio1Servicio s ON r.id = s.id.idRuta "
+				+ "WHERE :date BETWEEN s.id.fechaInicio AND s.id.fechaFin "
+				+ "GROUP BY r HAVING COUNT(s) BETWEEN 1 AND 9";
+		return entityManager.createQuery(jpql).setParameter("date", date).getResultList();
 	}
 
 }
