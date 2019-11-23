@@ -11,23 +11,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import co.edu.icesi.miniproyecto.model.Tmio1Conductore;
+import co.edu.icesi.miniproyecto.delegate.RutaDelegate;
 import co.edu.icesi.miniproyecto.model.Tmio1Ruta;
-import co.edu.icesi.miniproyecto.services.RutasServicio;
 
 @RequestMapping("/ruta")
 @Controller
 public class RutaController {
-	RutasServicio rutaService;
+	RutaDelegate rutaDelegate;
 	
 	@Autowired
-	public RutaController(RutasServicio service) {
-		rutaService = service;
+	public RutaController(RutaDelegate service) {
+		rutaDelegate = service;
 	}
 	
 	@GetMapping("")
 	public String indexRutas(Model model) {
-		model.addAttribute("rutas", rutaService.getAllRutas());
+		model.addAttribute("rutas", rutaDelegate.getAllRutas());
 		return "rutas/index";
 	}
 	
@@ -39,14 +38,14 @@ public class RutaController {
 	}
 	
 	@PostMapping("/add")
-	public String saveConductor(@RequestParam(value = "action", required = true) String action,
+	public String saveRuta(@RequestParam(value = "action", required = true) String action,
 			@Valid Tmio1Ruta ruta, BindingResult bindingResult, Model model) {
 		if(!action.equals("Cancel")) {
 			if (bindingResult.hasErrors()) 
 				return "rutas/add";
 			else
 				try {
-					rutaService.addRuta(ruta);
+					rutaDelegate.addTmio1Ruta(ruta);
 				} catch (Exception e) {
 					model.addAttribute("exception", e.getMessage());
 					return "rutas/add";

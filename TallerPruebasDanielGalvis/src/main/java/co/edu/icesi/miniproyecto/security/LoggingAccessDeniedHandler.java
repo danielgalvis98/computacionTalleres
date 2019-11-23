@@ -1,4 +1,4 @@
-package co.edu.icesi.miniproyecto.security;
+/*package co.edu.icesi.miniproyecto.security;
 
 import java.io.IOException;
 
@@ -37,3 +37,4 @@ public class LoggingAccessDeniedHandler implements AccessDeniedHandler{
 	}
 
 }
+*/

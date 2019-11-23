@@ -1,4 +1,4 @@
-package co.edu.icesi.miniproyecto.security;
+/*package co.edu.icesi.miniproyecto.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
@@ -31,4 +31,4 @@ public class MyCustomUserDetailsService implements UserDetailsService{
 		throw new UsernameNotFoundException("User not found");
 	}
 
-}
+}*/

@@ -12,11 +12,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.icesi.miniproyecto.model.Tmio1Servicio;
 import co.edu.icesi.miniproyecto.model.Tmio1ServicioPK;
@@ -27,7 +30,7 @@ import co.edu.icesi.miniproyecto.services.ServiciosServicio;
 import co.edu.icesi.miniproyecto.validation.ValidateDate;
 
 @RequestMapping("/api/servicio")
-@Controller
+@RestController
 public class ApiServiciosController {
 	
 	ServiciosServicio serviciosServicio;
@@ -50,7 +53,7 @@ public class ApiServiciosController {
 	}
 	
 	@PostMapping("/add")
-	public void saveServicio(Tmio1Servicio service) throws Exception {
+	public void saveServicio(@RequestBody Tmio1Servicio service) throws Exception {
 		serviciosServicio.addServicio(service);
 	}
 	
@@ -70,4 +73,37 @@ public class ApiServiciosController {
 		return toReturn;
 	}
 	
+	@GetMapping("/{idRuta}/{cedulaConductor}/{idBus}/{fechaInicio}/{fechaFin}")
+	public Tmio1Servicio getServicio(@PathVariable("idRuta") int idRuta, @PathVariable("cedulaConductor")
+	String cedulaConductor, @PathVariable("idBus")int idBus, @PathVariable("fechaInicio") String fechaInicio,
+	@PathVariable("fechaFin") String fechaFin) {
+		LocalDate inicio = LocalDate.parse(fechaInicio);
+		LocalDate fin = LocalDate.parse(fechaFin);
+		
+		Tmio1ServicioPK key = new Tmio1ServicioPK();
+		
+		key.setCedulaConductor(cedulaConductor);
+		key.setFechaFin(fin);
+		key.setFechaInicio(inicio);
+		key.setIdBus(idBus);
+		key.setIdRuta(idRuta);
+		return serviciosServicio.getServicio(key);
+	}
+	
+	@DeleteMapping("/{idRuta}/{cedulaConductor}/{idBus}/{fechaInicio}/{fechaFin}")
+	public void deleteServicio(@PathVariable("idRuta") int idRuta, @PathVariable("cedulaConductor")
+	String cedulaConductor, @PathVariable("idBus")int idBus, @PathVariable("fechaInicio") String fechaInicio,
+	@PathVariable("fechaFin") String fechaFin) {
+		LocalDate inicio = LocalDate.parse(fechaInicio);
+		LocalDate fin = LocalDate.parse(fechaFin);
+		
+		Tmio1ServicioPK key = new Tmio1ServicioPK();
+		
+		key.setCedulaConductor(cedulaConductor);
+		key.setFechaFin(fin);
+		key.setFechaInicio(inicio);
+		key.setIdBus(idBus);
+		key.setIdRuta(idRuta);
+		serviciosServicio.removeServicio(serviciosServicio.getServicio(key));
+	}
 }

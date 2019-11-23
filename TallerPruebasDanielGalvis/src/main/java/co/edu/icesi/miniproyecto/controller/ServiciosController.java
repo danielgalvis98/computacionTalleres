@@ -18,6 +18,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import co.edu.icesi.miniproyecto.delegate.BusDelegate;
+import co.edu.icesi.miniproyecto.delegate.ConductorDelegate;
+import co.edu.icesi.miniproyecto.delegate.RutaDelegate;
+import co.edu.icesi.miniproyecto.delegate.ServicioDelegate;
 import co.edu.icesi.miniproyecto.model.Tmio1Servicio;
 import co.edu.icesi.miniproyecto.model.Tmio1ServicioPK;
 import co.edu.icesi.miniproyecto.services.BusesServicio;
@@ -30,25 +34,25 @@ import co.edu.icesi.miniproyecto.validation.ValidateDate;
 @Controller
 public class ServiciosController {
 	
-	ServiciosServicio serviciosServicio;
-	BusesServicio busesServicio;
-	ConductoresServicio conductoresServicio;
-	RutasServicio rutasServicio;
+	ServicioDelegate serviciosDelegate;
+	BusDelegate busesDelegate;
+	ConductorDelegate conductoresDelegate;
+	RutaDelegate rutasDelegate;
 	
 	@Autowired
-	public ServiciosController(ServiciosServicio serviciosServicio, BusesServicio busesServicio,
-			ConductoresServicio conductoresServicio, RutasServicio rutasServicio) {
-		this.serviciosServicio = serviciosServicio;
-		this.busesServicio = busesServicio;
-		this.conductoresServicio = conductoresServicio;
-		this.rutasServicio = rutasServicio;
+	public ServiciosController(ServicioDelegate serviciosDelegate,BusDelegate busesDelegate,
+			ConductorDelegate conductoresDelegate,RutaDelegate rutasDelegate) {
+		this.serviciosDelegate = serviciosDelegate;
+		this.busesDelegate = busesDelegate;
+		this.conductoresDelegate = conductoresDelegate;
+		this.rutasDelegate = rutasDelegate;
 	}
 	
 	@GetMapping("")
 	public String indexServicio(Model model) {
 		model.addAttribute("tmio1ServicioPK", new Tmio1ServicioPK());
 		
-		model.addAttribute("servicios", serviciosServicio.getAllServicios());
+		model.addAttribute("servicios", serviciosDelegate.getAllServicios());
 		return "servicios/index";
 	}
 	
@@ -56,9 +60,9 @@ public class ServiciosController {
 	public String addServicio(Model model) {
 		model.addAttribute("tmio1ServicioPK", new Tmio1ServicioPK());
 		
-		model.addAttribute("buses", busesServicio.getAllBuses());
-		model.addAttribute("conductores", conductoresServicio.getAllConductores());
-		model.addAttribute("rutas", rutasServicio.getAllRutas());
+		model.addAttribute("buses", busesDelegate.getAllBuses());
+		model.addAttribute("conductores", conductoresDelegate.getAllConductores());
+		model.addAttribute("rutas", rutasDelegate.getAllRutas());
 		
 		return "servicios/add";
 	}
@@ -68,24 +72,24 @@ public class ServiciosController {
 			@Valid Tmio1ServicioPK servicePk, BindingResult bindingResult, Model model) {
 		if(!action.equals("Cancel")) {
 			if (bindingResult.hasErrors()) {
-				model.addAttribute("buses", busesServicio.getAllBuses());
-				model.addAttribute("conductores", conductoresServicio.getAllConductores());
-				model.addAttribute("rutas", rutasServicio.getAllRutas());
+				model.addAttribute("buses", busesDelegate.getAllBuses());
+				model.addAttribute("conductores", conductoresDelegate.getAllConductores());
+				model.addAttribute("rutas", rutasDelegate.getAllRutas());
 				
 				return "servicios/add";
 			}
 			else {
 				Tmio1Servicio service = new Tmio1Servicio();
 				service.setId(servicePk);
-				service.setTmio1Bus(busesServicio.getBus(servicePk.getIdBus()));
-				service.setTmio1Conductore(conductoresServicio.getConductor(servicePk.getCedulaConductor()));
-				service.setTmio1Ruta(rutasServicio.getRuta(servicePk.getIdRuta()));
+				service.setTmio1Bus(busesDelegate.getBus(servicePk.getIdBus()));
+				service.setTmio1Conductore(conductoresDelegate.getConductor(servicePk.getCedulaConductor()));
+				service.setTmio1Ruta(rutasDelegate.getRuta(servicePk.getIdRuta()));
 				try {
-					serviciosServicio.addServicio(service);
+					serviciosDelegate.addServicio(service);
 				} catch (Exception e) {
-					model.addAttribute("buses", busesServicio.getAllBuses());
-					model.addAttribute("conductores", conductoresServicio.getAllConductores());
-					model.addAttribute("rutas", rutasServicio.getAllRutas());
+					model.addAttribute("buses", busesDelegate.getAllBuses());
+					model.addAttribute("conductores", conductoresDelegate.getAllConductores());
+					model.addAttribute("rutas", rutasDelegate.getAllRutas());
 					model.addAttribute("exception", e.getMessage());
 					return "servicios/add";
 				}
@@ -109,15 +113,15 @@ public class ServiciosController {
 		key.setIdBus(idBus);
 		key.setIdRuta(idRuta);
 		
-		Tmio1Servicio service = serviciosServicio.getServicio(key);
+		Tmio1Servicio service = serviciosDelegate.getServicio(key);
 		if (service == null)
 			throw new IllegalArgumentException("Combinacion de parametros invalida");
 		
 		model.addAttribute("tmio1ServicioPK", service.getId());
 		
-		model.addAttribute("buses", busesServicio.getAllBuses());
-		model.addAttribute("conductores", conductoresServicio.getAllConductores());
-		model.addAttribute("rutas", rutasServicio.getAllRutas());
+		model.addAttribute("buses", busesDelegate.getAllBuses());
+		model.addAttribute("conductores", conductoresDelegate.getAllConductores());
+		model.addAttribute("rutas", rutasDelegate.getAllRutas());
 		
 		return "servicios/edit";
 	}
@@ -130,9 +134,9 @@ public class ServiciosController {
 		
 		if (!action.equals("Cancel")) {
 			if (bindingResult.hasErrors()) {
-				model.addAttribute("buses", busesServicio.getAllBuses());
-				model.addAttribute("conductores", conductoresServicio.getAllConductores());
-				model.addAttribute("rutas", rutasServicio.getAllRutas());
+				model.addAttribute("buses", busesDelegate.getAllBuses());
+				model.addAttribute("conductores", conductoresDelegate.getAllConductores());
+				model.addAttribute("rutas", rutasDelegate.getAllRutas());
 				servicePk.setFechaInicio(LocalDate.parse(fechaInicio));
 				servicePk.setFechaFin(LocalDate.parse(fechaFin));
 				
@@ -151,18 +155,18 @@ public class ServiciosController {
 				
 				Tmio1Servicio service = new Tmio1Servicio();
 				service.setId(servicePk);
-				service.setTmio1Bus(busesServicio.getBus(servicePk.getIdBus()));
-				service.setTmio1Conductore(conductoresServicio.getConductor(servicePk.getCedulaConductor()));
-				service.setTmio1Ruta(rutasServicio.getRuta(servicePk.getIdRuta()));
+				service.setTmio1Bus(busesDelegate.getBus(servicePk.getIdBus()));
+				service.setTmio1Conductore(conductoresDelegate.getConductor(servicePk.getCedulaConductor()));
+				service.setTmio1Ruta(rutasDelegate.getRuta(servicePk.getIdRuta()));
 				try {
-					serviciosServicio.addServicio(service);
-					Tmio1Servicio oldService = serviciosServicio.getServicio(key);
+					serviciosDelegate.addServicio(service);
+					Tmio1Servicio oldService = serviciosDelegate.getServicio(key);
 					if (!servicePk.equals(key))
-						serviciosServicio.removeServicio(oldService);
+						serviciosDelegate.removeServicio(oldService);
 				} catch (Exception e) {
-					model.addAttribute("buses", busesServicio.getAllBuses());
-					model.addAttribute("conductores", conductoresServicio.getAllConductores());
-					model.addAttribute("rutas", rutasServicio.getAllRutas());
+					model.addAttribute("buses", busesDelegate.getAllBuses());
+					model.addAttribute("conductores", conductoresDelegate.getAllConductores());
+					model.addAttribute("rutas", rutasDelegate.getAllRutas());
 					servicePk.setFechaInicio(LocalDate.parse(fechaInicio));
 					servicePk.setFechaFin(LocalDate.parse(fechaFin));
 					
@@ -178,7 +182,7 @@ public class ServiciosController {
 	@PostMapping("/filter-date")
 	public String filterDate(@Validated(ValidateDate.class) Tmio1ServicioPK servicePk, BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()) {
-			model.addAttribute("servicios", serviciosServicio.getAllServicios());
+			model.addAttribute("servicios", serviciosDelegate.getAllServicios());
 		} else {
 			model.addAttribute("servicios", getServicesFiltered(servicePk.getFechaInicio()));
 		}
@@ -188,7 +192,7 @@ public class ServiciosController {
 	
 	private Iterable<Tmio1Servicio> getServicesFiltered(LocalDate toCompare){
 		List<Tmio1Servicio> toReturn = new ArrayList<Tmio1Servicio>();
-		for (Tmio1Servicio serv: serviciosServicio.getAllServicios()) {
+		for (Tmio1Servicio serv: serviciosDelegate.getAllServicios()) {
 			if (serv.getId().getFechaInicio().compareTo(toCompare) <= 0 
 					&& serv.getId().getFechaFin().compareTo(toCompare) >= 0)
 				toReturn.add(serv);

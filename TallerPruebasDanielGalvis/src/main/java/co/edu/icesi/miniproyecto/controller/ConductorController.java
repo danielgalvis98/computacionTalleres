@@ -11,23 +11,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import co.edu.icesi.miniproyecto.model.Tmio1Bus;
+import co.edu.icesi.miniproyecto.delegate.ConductorDelegate;
 import co.edu.icesi.miniproyecto.model.Tmio1Conductore;
-import co.edu.icesi.miniproyecto.services.ConductoresServicio;
 
 @RequestMapping("/conductor")
 @Controller
 public class ConductorController {
-	ConductoresServicio conducService;
+	ConductorDelegate conductorDelegate;
 	
 	@Autowired
-	public ConductorController(ConductoresServicio service) {
-		conducService = service;
+	public ConductorController(ConductorDelegate service) {
+		conductorDelegate = service;
 	}
 	
 	@GetMapping("")
 	public String indexConductores(Model model) {
-		model.addAttribute("conductores", conducService.getAllConductores());
+		model.addAttribute("conductores", conductorDelegate.getAllConductores());
 		return "conductores/index";
 	}
 	
@@ -46,7 +45,7 @@ public class ConductorController {
 				return "conductores/add";
 			else {
 				try {
-					conducService.addConductor(conductor);
+					conductorDelegate.addConductor(conductor);
 				} catch (Exception e) {
 					model.addAttribute("exception", e.getMessage());
 					return "conductores/add";

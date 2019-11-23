@@ -11,6 +11,8 @@ import javax.validation.constraints.Past;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Date;
 import java.util.List;
 
@@ -50,6 +52,7 @@ public class Tmio1Conductore implements Serializable {
 
 	//bi-directional many-to-one association to Tmio1Servicio
 	@OneToMany(mappedBy="tmio1Conductore")
+	@JsonIgnore
 	private List<Tmio1Servicio> tmio1Servicios;
 
 	//bi-directional many-to-one association to Tmio1ServiciosSitio

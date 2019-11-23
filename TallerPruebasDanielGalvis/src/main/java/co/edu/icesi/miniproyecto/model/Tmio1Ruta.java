@@ -7,6 +7,8 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.NonNull;
 
 import java.math.BigDecimal;
@@ -64,6 +66,7 @@ public class Tmio1Ruta implements Serializable {
 
 	//bi-directional many-to-one association to Tmio1Servicio
 	@OneToMany(mappedBy="tmio1Ruta")
+	@JsonIgnore
 	private List<Tmio1Servicio> tmio1Servicios;
 
 	//bi-directional many-to-one association to Tmio1ServiciosSitio

@@ -11,29 +11,28 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import co.edu.icesi.miniproyecto.delegate.BusDelegate;
 import co.edu.icesi.miniproyecto.model.Tmio1Bus;
-import co.edu.icesi.miniproyecto.services.BusesServicio;
 
 @RequestMapping("/bus")
 @Controller
 public class BusesController {
-	BusesServicio busService;
+	BusDelegate busDelegate;
 	
 	@Autowired
-	public BusesController(BusesServicio service) {
-		busService = service;
+	public BusesController(BusDelegate service) {
+		busDelegate = service;
 	}
 	
 	@GetMapping("")
 	public String indexBuses(Model model) {
-		model.addAttribute("buses", busService.getAllBuses());
+		model.addAttribute("buses", busDelegate.getAllBuses());
 		return "buses/index";
 	}
 	
 	@GetMapping("/add")
 	public String addBus(Model model) {
 		model.addAttribute("tmio1Bus", new Tmio1Bus());
-		
 		return "buses/add";
 	}
 	
@@ -44,7 +43,7 @@ public class BusesController {
 			if (bindingResult.hasErrors()) 
 				return "buses/add";
 			else
-				busService.addBus(bus);
+				busDelegate.addTmio1Bus(bus);
 		}
 		
 		return "redirect:/bus";

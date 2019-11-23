@@ -1,4 +1,4 @@
-package co.edu.icesi.miniproyecto.security;
+/*package co.edu.icesi.miniproyecto.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -42,15 +42,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
-
 		httpSecurity.authorizeRequests().antMatchers("/bus/add/**").hasRole(UserType.admin.toString()).and().
 		authorizeRequests().antMatchers("/conductor/add/**").hasRole(UserType.admin.toString()).and().
-		authorizeRequests().antMatchers("/ruta/add/**").hasRole(UserType.admin.toString()).and().authorizeRequests()
-		.antMatchers("/**").authenticated().and()
+		authorizeRequests().antMatchers("/ruta/add/**").hasRole(UserType.admin.toString()).and().
+		authorizeRequests().antMatchers("/api/**").permitAll().and().
+		authorizeRequests().antMatchers("/**").authenticated().and()
 		.formLogin().loginPage("/login").permitAll().and()
 		.logout().invalidateHttpSession(true).clearAuthentication(true)
 		.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login?logout")
 		.permitAll().and().exceptionHandling().accessDeniedHandler(accessDeniedHandler);
-	}
+	} 
 }
-
+*/
