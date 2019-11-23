@@ -1,4 +1,4 @@
-/*package co.edu.icesi.miniproyecto.security;
+package co.edu.icesi.miniproyecto.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -42,7 +42,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
-		httpSecurity.authorizeRequests().antMatchers("/bus/add/**").hasRole(UserType.admin.toString()).and().
+		httpSecurity.csrf().disable().
+		authorizeRequests().antMatchers("/bus/add/**").hasRole(UserType.admin.toString()).and().
 		authorizeRequests().antMatchers("/conductor/add/**").hasRole(UserType.admin.toString()).and().
 		authorizeRequests().antMatchers("/ruta/add/**").hasRole(UserType.admin.toString()).and().
 		authorizeRequests().antMatchers("/api/**").permitAll().and().
@@ -53,4 +54,3 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.permitAll().and().exceptionHandling().accessDeniedHandler(accessDeniedHandler);
 	} 
 }
-*/

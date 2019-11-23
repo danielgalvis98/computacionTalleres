@@ -27,7 +27,7 @@ public class ApiConductorController {
 		return conducService.getAllConductores();
 	}
 	
-	@PostMapping("/add")
+	@PostMapping("")
 	public void saveConductor(@RequestBody Tmio1Conductore conductor) throws Exception {
 		conducService.addConductor(conductor);
 	}

@@ -22,13 +22,11 @@ public class ApiBusesController {
 	
 	@GetMapping("/api/buses")
 	public Iterable<Tmio1Bus> getBuses(){
-		System.out.println("RESTCONTROLLER GETBUSES");
 		return busService.getAllBuses();
 	}
 	
 	@PostMapping("/api/buses")
 	public Tmio1Bus addTmio1Bus(@RequestBody Tmio1Bus bus) {
-		System.out.println("RESTCONTROLLER");
 		busService.addBus(bus);
 		return bus;
 	}

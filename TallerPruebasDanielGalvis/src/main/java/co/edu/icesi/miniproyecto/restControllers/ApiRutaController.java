@@ -33,10 +33,8 @@ public class ApiRutaController {
 		return rutaService.getAllRutas();
 	}
 	
-	@PostMapping("/add")
+	@PostMapping("")
 	public void addTmio1Ruta(@RequestBody Tmio1Ruta ruta) throws Exception {
-		System.out.println(ruta.getDiaFin());
-		System.out.println(ruta.getDiaInicio());
 		rutaService.addRuta(ruta);
 	}
 	

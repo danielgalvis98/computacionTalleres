@@ -52,7 +52,7 @@ public class ApiServiciosController {
 		return serviciosServicio.getAllServicios();
 	}
 	
-	@PostMapping("/add")
+	@PostMapping("")
 	public void saveServicio(@RequestBody Tmio1Servicio service) throws Exception {
 		serviciosServicio.addServicio(service);
 	}

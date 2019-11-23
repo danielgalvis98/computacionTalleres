@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 
 import co.edu.icesi.miniproyecto.model.Tmio1Usuario;
@@ -31,7 +32,7 @@ public class TallerPruebasDanielGalvisApplication {
 	public CommandLineRunner runner(UserRepository userRepository, BusesRepository busRepo,
 			ConductoresRepository conducRepo, RutasRepository rutasRepo, ServiciosRepository servRepo) {
 		return (args) -> {
-			/*BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 			
 			Tmio1Usuario user = new Tmio1Usuario();
 			user.setUsername("admin-test");
@@ -43,7 +44,7 @@ public class TallerPruebasDanielGalvisApplication {
 			user2.setUsername("operador-test");
 			user2.setPassword(encoder.encode("123"));
 			user2.setType(UserType.operador);
-			userRepository.save(user2);*/
+			userRepository.save(user2);
 			
 		};
 	}
