@@ -5,14 +5,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.icesi.miniproyecto.model.Tmio1Bus;
 import co.edu.icesi.miniproyecto.services.BusesServicio;
 
 @RestController
-public class ApiBusesController {
+public class ApiBusesController implements IApiBuses{
 	BusesServicio busService;
 	
 	@Autowired

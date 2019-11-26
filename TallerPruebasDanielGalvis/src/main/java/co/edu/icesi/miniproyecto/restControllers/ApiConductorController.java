@@ -14,7 +14,7 @@ import co.edu.icesi.miniproyecto.services.ConductoresServicio;
 
 @RequestMapping("/api/conductores")
 @RestController
-public class ApiConductorController {
+public class ApiConductorController implements IApiConductor{
 	ConductoresServicio conducService;
 	
 	@Autowired

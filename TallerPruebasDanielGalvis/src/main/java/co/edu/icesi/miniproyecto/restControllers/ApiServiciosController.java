@@ -31,7 +31,7 @@ import co.edu.icesi.miniproyecto.validation.ValidateDate;
 
 @RequestMapping("/api/servicio")
 @RestController
-public class ApiServiciosController {
+public class ApiServiciosController implements IApiServicios{
 	
 	ServiciosServicio serviciosServicio;
 	BusesServicio busesServicio;
