@@ -7,12 +7,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Entity
-@Getter
-@Setter
+@Data
 public class Tmio1Usuario {
 
 	@Id
@@ -26,25 +24,5 @@ public class Tmio1Usuario {
 	private String password;
 	
 	private UserType type;
-
-	public void setUsername(String string) {
-		username=string;
-	}
-
-	public void setPassword(String encode) {
-		password=encode;
-	}
-
-	public void setType(UserType operador) {
-		type=operador;
-	}
-
-	public UserType getType() {
-		return type;
-	}
-
-	public String getPassword() {
-		return password;
-	}
 	
 }
