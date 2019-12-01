@@ -43,4 +43,7 @@ public abstract class GenericDelegate {
     {
         restTemplate = new RestTemplate(getClientHttpRequestFactory());
     }
+	public void setRestTemplate(RestTemplate restTemplate) {
+		this.restTemplate=restTemplate;
+	}
 }

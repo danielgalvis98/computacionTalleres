@@ -1,4 +1,4 @@
-package co.edu.icesi.miniproyecto.tests;
+package co.edu.icesi.miniproyecto.tests.repositories;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;

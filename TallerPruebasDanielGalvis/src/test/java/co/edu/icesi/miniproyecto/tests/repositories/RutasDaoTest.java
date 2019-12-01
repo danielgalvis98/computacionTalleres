@@ -1,4 +1,4 @@
-package co.edu.icesi.miniproyecto.tests;
+package co.edu.icesi.miniproyecto.tests.repositories;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -74,7 +74,7 @@ public class RutasDaoTest {
 		Tmio1Ruta ruta = new Tmio1Ruta();
 		
 		ruta.setActiva("N");
-		ruta.setDescripcion("Andrés Sanin");
+		ruta.setDescripcion("Andrï¿½s Sanin");
 		ruta.setDiaFin(new BigDecimal(6));
 		ruta.setDiaInicio(new BigDecimal(1));
 		ruta.setHoraFin(new BigDecimal(8000));

@@ -76,15 +76,11 @@ public class ApiServiciosController implements IApiServicios{
 		}
 	}
 	
-	@PostMapping("/remove")
-	public ResponseEntity<TransactionBody<Tmio1Servicio>> removeServicio(Tmio1Servicio service) {
-		return null;
-	}
-	
 	@GetMapping("/{date}")
 	public TransactionBody<Iterable<Tmio1Servicio>> getServicesFiltered(@PathVariable("date") LocalDate toCompare){
 		List<Tmio1Servicio> toReturn = new ArrayList<Tmio1Servicio>();
-		for (Tmio1Servicio serv: serviciosServicio.getAllServicios()) {
+		Iterable<Tmio1Servicio>toIterate=serviciosServicio.getAllServicios();
+		for (Tmio1Servicio serv: toIterate) {
 			if (serv.getId().getFechaInicio().compareTo(toCompare) <= 0 
 					&& serv.getId().getFechaFin().compareTo(toCompare) >= 0)
 				toReturn.add(serv);
