@@ -23,12 +23,12 @@ public class ConductoresServicioImpl implements ConductoresServicio{
 	
 	@Override
 	@Transactional
-	public void addConductor(Tmio1Conductore conductor) throws Exception {
+	public void addConductor(Tmio1Conductore conductor) {
 		if (conductor == null) {
 			throw new NullPointerException("El conductor no puede ser nulo");
 		}
 		if (conductor.getFechaContratacion().compareTo(conductor.getFechaNacimiento()) <= 0)
-			throw new Exception("Un conductor no puede ser contratado antes de su fecha de nacimiento");
+			throw new RuntimeException("Un conductor no puede ser contratado antes de su fecha de nacimiento");
 		
 		repository.save(conductor);
 		

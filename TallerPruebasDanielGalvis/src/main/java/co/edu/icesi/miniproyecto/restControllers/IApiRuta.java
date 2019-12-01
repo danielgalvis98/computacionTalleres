@@ -1,11 +1,14 @@
 package co.edu.icesi.miniproyecto.restControllers;
+import org.springframework.http.ResponseEntity;
+
 import co.edu.icesi.miniproyecto.model.Tmio1Ruta;
+import co.edu.icesi.miniproyecto.model.TransactionBody;
 
 public interface IApiRuta {
-	public Iterable<Tmio1Ruta> getRutas();
+	public TransactionBody<Iterable<Tmio1Ruta>> getRutas();
 	
-	public void addTmio1Ruta(Tmio1Ruta ruta) throws Exception;
+	public ResponseEntity<TransactionBody<Tmio1Ruta>> addTmio1Ruta(TransactionBody<Tmio1Ruta> ruta);
 	
-	public Tmio1Ruta getRuta(Integer id);
+	public ResponseEntity<TransactionBody<Tmio1Ruta>> getRuta(Integer id);
 
 }

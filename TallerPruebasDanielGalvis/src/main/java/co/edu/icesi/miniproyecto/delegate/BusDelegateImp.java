@@ -1,11 +1,17 @@
 package co.edu.icesi.miniproyecto.delegate;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import co.edu.icesi.miniproyecto.model.Tmio1Bus;
+import co.edu.icesi.miniproyecto.model.TransactionBody;
 
 @Component
 public class BusDelegateImp extends GenericDelegate implements BusDelegate  {
@@ -16,20 +22,42 @@ public class BusDelegateImp extends GenericDelegate implements BusDelegate  {
 	
 	@Override
 	public Iterable<Tmio1Bus> getAllBuses() {
-		Tmio1Bus[] response = restTemplate.getForObject(SERVER+"api/buses",Tmio1Bus[].class);
-		return Arrays.asList(response);
+		TransactionBody<List<Tmio1Bus>> transaction = new TransactionBody<>("carList", new ArrayList<>());
+		HttpEntity<TransactionBody<List<Tmio1Bus>>> request = new HttpEntity<> (transaction);
+		ResponseEntity<TransactionBody<List<Tmio1Bus>>> response = null;
+		
+		response = restTemplate.exchange(SERVER+"api/buses", HttpMethod.GET, 
+				request, new ParameterizedTypeReference<TransactionBody<List<Tmio1Bus>>>() {
+				});
+		
+		Iterable<Tmio1Bus> it = response.getBody().getBody();
+		return it;
 	}
 
 	@Override
 	public Tmio1Bus addTmio1Bus(Tmio1Bus bus) {
-        ResponseEntity<Tmio1Bus> re=restTemplate.postForEntity(SERVER+"api/buses",bus,Tmio1Bus.class);
-		Tmio1Bus bas=re.getBody();
-		return bas;
+		TransactionBody<Tmio1Bus> transaction = new TransactionBody<>("newBus", bus);
+		HttpEntity<TransactionBody<Tmio1Bus>> request = new HttpEntity<>(transaction);
+		ResponseEntity<TransactionBody<Tmio1Bus>> response = null;
+		
+		
+        response =restTemplate.exchange(SERVER+"api/buses",HttpMethod.POST, request,
+        		new ParameterizedTypeReference<TransactionBody<Tmio1Bus>>() {
+		});
+        
+		return bus;
 	}
 
 	@Override
 	public Tmio1Bus getBus(Integer idBus) {
-		return restTemplate.getForObject(SERVER+"api/buses/"+idBus,Tmio1Bus.class);
+		TransactionBody<Integer> transaction = new TransactionBody<>("busid", idBus);
+		HttpEntity<TransactionBody<Integer>> request = new HttpEntity<>(transaction);
+		ResponseEntity<TransactionBody<Tmio1Bus>> response = null;
+		
+		response =restTemplate.exchange(SERVER+"api/buses/" + idBus,HttpMethod.GET, request,
+        		new ParameterizedTypeReference<TransactionBody<Tmio1Bus>>() {
+		});
+		return response.getBody().getBody();
 	}
 
 }

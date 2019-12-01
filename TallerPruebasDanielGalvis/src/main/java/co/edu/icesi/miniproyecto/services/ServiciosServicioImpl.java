@@ -40,46 +40,46 @@ public class ServiciosServicioImpl implements ServiciosServicio{
 	
 	@Override
 	@Transactional
-	public void addServicio(Tmio1Servicio servicio) throws Exception {
+	public void addServicio(Tmio1Servicio servicio)  {
 		if (servicio == null) {
 			throw new NullPointerException("El servicio no puede ser nulo");
 		}
 		
 		if (servicio.getTmio1Conductore() == null) {
-			throw new Exception("El conductor debe de estar registrado");
+			throw new RuntimeException("El conductor debe de estar registrado");
 		}
 		
 		if (servicio.getId().getFechaFin().compareTo(servicio.getId().getFechaInicio()) < 0)
-			throw new Exception("La fecha de fin del servicio debe de ser "
+			throw new RuntimeException("La fecha de fin del servicio debe de ser "
 					+ "después de la fecha de inicio del servicio");
 		
 		Tmio1Conductore conductor = conductoresRepository.findById(servicio.getTmio1Conductore().getCedula());
 		
 		if (conductor == null) {
-			throw new Exception("El conductor debe de estar registrado");
+			throw new RuntimeException("El conductor debe de estar registrado");
 		}
 		
 		if (servicio.getId().getFechaInicio().compareTo(conductor.getFechaContratacion()) < 0) {
 			System.out.println(servicio.getId().getFechaInicio().toString());
-			throw new Exception("El conductor debe haber sido contratado antes de la fecha de inicio del servicio");			
+			throw new RuntimeException("El conductor debe haber sido contratado antes de la fecha de inicio del servicio");			
 		}
 		
 		if (servicio.getTmio1Bus() == null) {
-			throw new Exception("El bus debe de estar registrado");
+			throw new RuntimeException("El bus debe de estar registrado");
 		}
 		
 		Tmio1Bus bus = busesRepository.findById(servicio.getTmio1Bus().getId()) ;
 		if (bus == null) {
-			throw new Exception("El bus debe de estar registrado");
+			throw new RuntimeException("El bus debe de estar registrado");
 		}
 		
 		if (servicio.getTmio1Ruta() == null) {
-			throw new Exception("La ruta debe de estar registrada");
+			throw new RuntimeException("La ruta debe de estar registrada");
 		}
 		
 		Tmio1Ruta ruta = rutasRepository.findById(servicio.getTmio1Ruta().getId());
 		if (ruta == null) {
-			throw new Exception("La ruta debe de estar registrada");
+			throw new RuntimeException("La ruta debe de estar registrada");
 		}
 		
 		repository.save(servicio);

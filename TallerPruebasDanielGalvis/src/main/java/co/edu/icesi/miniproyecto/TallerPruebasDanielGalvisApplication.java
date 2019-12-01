@@ -1,6 +1,10 @@
 package co.edu.icesi.miniproyecto;
 
 
+import java.math.BigDecimal;
+
+import javax.transaction.Transactional;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,6 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 
+import co.edu.icesi.miniproyecto.model.Tmio1Bus;
 import co.edu.icesi.miniproyecto.model.Tmio1Usuario;
 import co.edu.icesi.miniproyecto.model.UserType;
 import co.edu.icesi.miniproyecto.repository.BusesRepository;
@@ -15,6 +20,7 @@ import co.edu.icesi.miniproyecto.repository.ConductoresRepository;
 import co.edu.icesi.miniproyecto.repository.RutasRepository;
 import co.edu.icesi.miniproyecto.repository.ServiciosRepository;
 import co.edu.icesi.miniproyecto.repository.UserRepository;
+import co.edu.icesi.miniproyecto.services.BusesServicio;
 
 @SpringBootApplication
 public class TallerPruebasDanielGalvisApplication {
@@ -29,7 +35,7 @@ public class TallerPruebasDanielGalvisApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner runner(UserRepository userRepository, BusesRepository busRepo,
+	public CommandLineRunner runner(UserRepository userRepository, BusesServicio busRepo,
 			ConductoresRepository conducRepo, RutasRepository rutasRepo, ServiciosRepository servRepo) {
 		return (args) -> {
 			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -45,6 +51,14 @@ public class TallerPruebasDanielGalvisApplication {
 			user2.setPassword(encoder.encode("123"));
 			user2.setType(UserType.operador);
 			userRepository.save(user2);
+			
+			Tmio1Bus bus = new Tmio1Bus();
+			bus.setCapacidad(new BigDecimal(1000));
+			bus.setMarca("Volks");
+			bus.setModelo(new BigDecimal(2020));
+			bus.setPlaca("123");
+			bus.setTipo("Alim");
+			busRepo.addBus(bus);
 			
 		};
 	}

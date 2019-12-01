@@ -8,6 +8,8 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.icesi.miniproyecto.model.Tmio1Servicio;
 import co.edu.icesi.miniproyecto.model.Tmio1ServicioPK;
+import co.edu.icesi.miniproyecto.model.TransactionBody;
 import co.edu.icesi.miniproyecto.services.BusesServicio;
 import co.edu.icesi.miniproyecto.services.ConductoresServicio;
 import co.edu.icesi.miniproyecto.services.RutasServicio;
@@ -48,33 +51,52 @@ public class ApiServiciosController implements IApiServicios{
 	}
 	
 	@GetMapping("")
-	public Iterable<Tmio1Servicio> getServicios(){
-		return serviciosServicio.getAllServicios();
+	public TransactionBody<Iterable<Tmio1Servicio>> getServicios(){
+		TransactionBody<Iterable<Tmio1Servicio>> tb = new TransactionBody<>();
+		tb.setBody(serviciosServicio.getAllServicios());
+		return tb;
 	}
 	
 	@PostMapping("")
-	public void saveServicio(@RequestBody Tmio1Servicio service) throws Exception {
-		serviciosServicio.addServicio(service);
+	public ResponseEntity<TransactionBody<Tmio1Servicio>> saveServicio(@RequestBody TransactionBody<Tmio1Servicio> service) {
+		Tmio1Servicio servicio = service.getBody();
+		TransactionBody<Tmio1Servicio> tb;
+		try {
+			serviciosServicio.addServicio(servicio);
+			tb  = new TransactionBody<>("NewServicio", servicio);
+			ResponseEntity<TransactionBody<Tmio1Servicio>> response = new ResponseEntity<> (tb,
+					HttpStatus.SEE_OTHER);
+			return response;
+			
+		} catch (RuntimeException e) {
+			tb = new TransactionBody<>(e.getMessage(), servicio);
+			ResponseEntity<TransactionBody<Tmio1Servicio>> response = new ResponseEntity<> (tb,
+					HttpStatus.INTERNAL_SERVER_ERROR);
+			return response;
+		}
 	}
 	
 	@PostMapping("/remove")
-	public void removeServicio(Tmio1Servicio service) {
-		serviciosServicio.removeServicio(service);
+	public ResponseEntity<TransactionBody<Tmio1Servicio>> removeServicio(Tmio1Servicio service) {
+		return null;
 	}
 	
 	@PostMapping("/filter-date")
-	public Iterable<Tmio1Servicio> getServicesFiltered(LocalDate toCompare){
+	public TransactionBody<Iterable<Tmio1Servicio>> getServicesFiltered(LocalDate toCompare){
 		List<Tmio1Servicio> toReturn = new ArrayList<Tmio1Servicio>();
 		for (Tmio1Servicio serv: serviciosServicio.getAllServicios()) {
 			if (serv.getId().getFechaInicio().compareTo(toCompare) <= 0 
 					&& serv.getId().getFechaFin().compareTo(toCompare) >= 0)
 				toReturn.add(serv);
 		}
-		return toReturn;
+		
+		TransactionBody<Iterable<Tmio1Servicio>> tb = new TransactionBody<>();
+		tb.setBody(toReturn);
+		return tb;
 	}
 	
 	@GetMapping("/{idRuta}/{cedulaConductor}/{idBus}/{fechaInicio}/{fechaFin}")
-	public Tmio1Servicio getServicio(@PathVariable("idRuta") int idRuta, @PathVariable("cedulaConductor")
+	public ResponseEntity<TransactionBody<Tmio1Servicio>> getServicio(@PathVariable("idRuta") int idRuta, @PathVariable("cedulaConductor")
 	String cedulaConductor, @PathVariable("idBus")int idBus, @PathVariable("fechaInicio") String fechaInicio,
 	@PathVariable("fechaFin") String fechaFin) {
 		LocalDate inicio = LocalDate.parse(fechaInicio);
@@ -87,23 +109,20 @@ public class ApiServiciosController implements IApiServicios{
 		key.setFechaInicio(inicio);
 		key.setIdBus(idBus);
 		key.setIdRuta(idRuta);
-		return serviciosServicio.getServicio(key);
+		Tmio1Servicio serv = serviciosServicio.getServicio(key);
+		TransactionBody<Tmio1Servicio> tb = new TransactionBody<>("ActServ", serv);
+		ResponseEntity<TransactionBody<Tmio1Servicio>> response = new ResponseEntity<>(tb,
+				HttpStatus.SEE_OTHER);
+		return response;
 	}
 	
-	@DeleteMapping("/{idRuta}/{cedulaConductor}/{idBus}/{fechaInicio}/{fechaFin}")
-	public void deleteServicio(@PathVariable("idRuta") int idRuta, @PathVariable("cedulaConductor")
-	String cedulaConductor, @PathVariable("idBus")int idBus, @PathVariable("fechaInicio") String fechaInicio,
-	@PathVariable("fechaFin") String fechaFin) {
-		LocalDate inicio = LocalDate.parse(fechaInicio);
-		LocalDate fin = LocalDate.parse(fechaFin);
-		
-		Tmio1ServicioPK key = new Tmio1ServicioPK();
-		
-		key.setCedulaConductor(cedulaConductor);
-		key.setFechaFin(fin);
-		key.setFechaInicio(inicio);
-		key.setIdBus(idBus);
-		key.setIdRuta(idRuta);
-		serviciosServicio.removeServicio(serviciosServicio.getServicio(key));
+	@DeleteMapping("")
+	public ResponseEntity<TransactionBody<Tmio1Servicio>> deleteServicio(@RequestBody TransactionBody<Tmio1Servicio> service) {
+		Tmio1Servicio serv = service.getBody();
+		serviciosServicio.removeServicio(serv);
+		TransactionBody<Tmio1Servicio> tb = new TransactionBody<>("DelServ", serv);
+		ResponseEntity<TransactionBody<Tmio1Servicio>> response = new ResponseEntity<> (tb,
+				HttpStatus.SEE_OTHER);
+		return response;
 	}
 }

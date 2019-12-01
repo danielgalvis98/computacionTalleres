@@ -23,15 +23,15 @@ public class RutasServicioImpl implements RutasServicio{
 	
 	@Override
 	@Transactional
-	public void addRuta(Tmio1Ruta ruta) throws Exception {
+	public void addRuta(Tmio1Ruta ruta){
 		if (ruta == null) {
 			throw new NullPointerException("La ruta no puede ser nula");
 		}
 		if (ruta.getDiaFin().compareTo(ruta.getDiaInicio()) < 0)
-			throw new Exception("El día de inicio debe ser menor al día de fin");
+			throw new RuntimeException("El día de inicio debe ser menor al día de fin");
 		
 		if (ruta.getHoraFin().compareTo(ruta.getHoraInicio()) < 0) {
-			throw new Exception("La hora de inicio ser menor la hora de fin");
+			throw new RuntimeException("La hora de inicio ser menor la hora de fin");
 		}
 		repository.save(ruta);
 	}
