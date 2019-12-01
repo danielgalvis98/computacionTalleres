@@ -1,4 +1,4 @@
-package co.edu.icesi.miniproyecto.restControllers;
+ package co.edu.icesi.miniproyecto.restControllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,7 +36,7 @@ public class ApiBusesController implements IApiBuses{
 		busService.addBus(buss);
 		TransactionBody<Tmio1Bus> tb = new TransactionBody<Tmio1Bus>("NewBus", buss);
 		ResponseEntity<TransactionBody<Tmio1Bus>> response = new ResponseEntity<>(tb,
-				HttpStatus.SEE_OTHER);
+				HttpStatus.ACCEPTED);
 		return response;
 	}
 	
@@ -45,7 +45,7 @@ public class ApiBusesController implements IApiBuses{
 		Tmio1Bus bus = busService.getBus(id);
 		TransactionBody<Tmio1Bus> tb = new TransactionBody<>("NewBus", bus);
 		ResponseEntity<TransactionBody<Tmio1Bus>> response = new ResponseEntity<>(tb,
-				HttpStatus.SEE_OTHER);
+				HttpStatus.ACCEPTED);
 		
 		return response;
 	}

@@ -47,6 +47,7 @@ public class ConductorController {
 				try {
 					conductorDelegate.addConductor(conductor);
 				} catch (Exception e) {
+					//e.printStackTrace();
 					model.addAttribute("exception", e.getMessage());
 					return "conductores/add";
 				}

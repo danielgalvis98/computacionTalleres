@@ -65,13 +65,13 @@ public class ApiServiciosController implements IApiServicios{
 			serviciosServicio.addServicio(servicio);
 			tb  = new TransactionBody<>("NewServicio", servicio);
 			ResponseEntity<TransactionBody<Tmio1Servicio>> response = new ResponseEntity<> (tb,
-					HttpStatus.SEE_OTHER);
+					HttpStatus.ACCEPTED);
 			return response;
 			
 		} catch (RuntimeException e) {
 			tb = new TransactionBody<>(e.getMessage(), servicio);
 			ResponseEntity<TransactionBody<Tmio1Servicio>> response = new ResponseEntity<> (tb,
-					HttpStatus.INTERNAL_SERVER_ERROR);
+					HttpStatus.MULTI_STATUS);
 			return response;
 		}
 	}
@@ -81,8 +81,8 @@ public class ApiServiciosController implements IApiServicios{
 		return null;
 	}
 	
-	@PostMapping("/filter-date")
-	public TransactionBody<Iterable<Tmio1Servicio>> getServicesFiltered(LocalDate toCompare){
+	@GetMapping("/{date}")
+	public TransactionBody<Iterable<Tmio1Servicio>> getServicesFiltered(@PathVariable("date") LocalDate toCompare){
 		List<Tmio1Servicio> toReturn = new ArrayList<Tmio1Servicio>();
 		for (Tmio1Servicio serv: serviciosServicio.getAllServicios()) {
 			if (serv.getId().getFechaInicio().compareTo(toCompare) <= 0 
@@ -112,7 +112,7 @@ public class ApiServiciosController implements IApiServicios{
 		Tmio1Servicio serv = serviciosServicio.getServicio(key);
 		TransactionBody<Tmio1Servicio> tb = new TransactionBody<>("ActServ", serv);
 		ResponseEntity<TransactionBody<Tmio1Servicio>> response = new ResponseEntity<>(tb,
-				HttpStatus.SEE_OTHER);
+				HttpStatus.ACCEPTED);
 		return response;
 	}
 	
@@ -122,7 +122,7 @@ public class ApiServiciosController implements IApiServicios{
 		serviciosServicio.removeServicio(serv);
 		TransactionBody<Tmio1Servicio> tb = new TransactionBody<>("DelServ", serv);
 		ResponseEntity<TransactionBody<Tmio1Servicio>> response = new ResponseEntity<> (tb,
-				HttpStatus.SEE_OTHER);
+				HttpStatus.ACCEPTED);
 		return response;
 	}
 }

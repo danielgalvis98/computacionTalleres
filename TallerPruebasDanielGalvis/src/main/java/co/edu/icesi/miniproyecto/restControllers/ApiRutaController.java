@@ -41,12 +41,12 @@ public class ApiRutaController implements IApiRuta{
 			rutaService.addRuta(rutaa);
 			tb = new TransactionBody<>("NewRuta", rutaa);
 			ResponseEntity<TransactionBody<Tmio1Ruta>> response = new ResponseEntity<>(tb,
-					HttpStatus.SEE_OTHER);
+					HttpStatus.ACCEPTED);
 			return response;
 		} catch (RuntimeException e) {
 			tb = new TransactionBody<>(e.getMessage(), rutaa);
 			ResponseEntity<TransactionBody<Tmio1Ruta>> response = new ResponseEntity<>(tb,
-					HttpStatus.INTERNAL_SERVER_ERROR);
+					HttpStatus.MULTI_STATUS);
 			return response;
 		}
 	}
@@ -56,7 +56,7 @@ public class ApiRutaController implements IApiRuta{
 		Tmio1Ruta ruta = rutaService.getRuta(id);
 		TransactionBody<Tmio1Ruta> tb = new TransactionBody<>("ActRuta", ruta);
 		ResponseEntity<TransactionBody<Tmio1Ruta>> response = new ResponseEntity<>(tb,
-				HttpStatus.SEE_OTHER);
+				HttpStatus.ACCEPTED);
 		return response;
 	}
 

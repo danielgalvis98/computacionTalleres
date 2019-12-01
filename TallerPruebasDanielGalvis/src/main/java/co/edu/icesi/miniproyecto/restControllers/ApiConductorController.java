@@ -41,12 +41,13 @@ public class ApiConductorController implements IApiConductor{
 			conducService.addConductor(conductore);
 			tb = new TransactionBody<>("NewConduc", conductore);
 			ResponseEntity<TransactionBody<Tmio1Conductore>> response = new ResponseEntity<>(tb,
-					HttpStatus.SEE_OTHER);
+					HttpStatus.ACCEPTED);
 			return response;
 		} catch (RuntimeException e) {
+			e.printStackTrace();
 			tb = new TransactionBody<>(e.getMessage(), conductore);
 			ResponseEntity<TransactionBody<Tmio1Conductore>> response = new ResponseEntity<>(tb,
-					HttpStatus.INTERNAL_SERVER_ERROR);
+					HttpStatus.MULTI_STATUS);
 			return response;
 		}
 	}
@@ -56,7 +57,7 @@ public class ApiConductorController implements IApiConductor{
 		Tmio1Conductore conduc = conducService.getConductor(cedula);
 		TransactionBody<Tmio1Conductore> tb = new TransactionBody<>("ActConduc", conduc);
 		ResponseEntity<TransactionBody<Tmio1Conductore>> response = new ResponseEntity<>(tb,
-				HttpStatus.SEE_OTHER);
+				HttpStatus.ACCEPTED);
 		return response;
 	}
 

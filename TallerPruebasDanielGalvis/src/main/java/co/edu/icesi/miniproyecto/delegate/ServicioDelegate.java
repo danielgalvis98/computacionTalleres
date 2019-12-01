@@ -1,5 +1,7 @@
 package co.edu.icesi.miniproyecto.delegate;
 
+import java.time.LocalDate;
+
 import co.edu.icesi.miniproyecto.model.Tmio1Servicio;
 import co.edu.icesi.miniproyecto.model.Tmio1ServicioPK;
 
@@ -13,5 +15,6 @@ public interface ServicioDelegate {
 
 	public void removeServicio(Tmio1Servicio oldService);
 	
+	public Iterable<Tmio1Servicio> getServiciosByDate(LocalDate date);
 	
 }

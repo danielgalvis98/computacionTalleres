@@ -184,20 +184,10 @@ public class ServiciosController {
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("servicios", serviciosDelegate.getAllServicios());
 		} else {
-			model.addAttribute("servicios", getServicesFiltered(servicePk.getFechaInicio()));
+			model.addAttribute("servicios", serviciosDelegate.getServiciosByDate(servicePk.getFechaInicio()));
 		}
 		
 		return "servicios/index";
-	}
-	
-	private Iterable<Tmio1Servicio> getServicesFiltered(LocalDate toCompare){
-		List<Tmio1Servicio> toReturn = new ArrayList<Tmio1Servicio>();
-		for (Tmio1Servicio serv: serviciosDelegate.getAllServicios()) {
-			if (serv.getId().getFechaInicio().compareTo(toCompare) <= 0 
-					&& serv.getId().getFechaFin().compareTo(toCompare) >= 0)
-				toReturn.add(serv);
-		}
-		return toReturn;
 	}
 
 }
