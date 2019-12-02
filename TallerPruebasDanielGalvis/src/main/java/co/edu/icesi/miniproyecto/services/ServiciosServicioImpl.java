@@ -97,7 +97,7 @@ public class ServiciosServicioImpl implements ServiciosServicio{
 	public void setServicio(Tmio1Servicio servicio) throws Exception {
 		Tmio1Servicio serviceOpt= repository.findById(servicio.getId());
 		if (serviceOpt == null)
-			throw new Exception("No hay ningún servicio con ese id");
+			throw new Exception("No hay ningun servicio con ese id");
 		addServicio(servicio);
 		
 	}
