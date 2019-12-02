@@ -77,7 +77,8 @@ public class ApiServiciosController implements IApiServicios{
 	}
 	
 	@GetMapping("/{date}")
-	public TransactionBody<Iterable<Tmio1Servicio>> getServicesFiltered(@PathVariable("date") LocalDate toCompare){
+	public TransactionBody<Iterable<Tmio1Servicio>> getServicesFiltered(@PathVariable("date") String strToCompare){
+		LocalDate toCompare = LocalDate.parse(strToCompare);
 		List<Tmio1Servicio> toReturn = new ArrayList<Tmio1Servicio>();
 		Iterable<Tmio1Servicio>toIterate=serviciosServicio.getAllServicios();
 		for (Tmio1Servicio serv: toIterate) {

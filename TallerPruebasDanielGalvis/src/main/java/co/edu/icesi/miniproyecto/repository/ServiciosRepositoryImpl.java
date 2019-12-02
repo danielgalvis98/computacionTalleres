@@ -34,7 +34,7 @@ public class ServiciosRepositoryImpl implements ServiciosRepository{
 
 	@Override
 	public void delete(Tmio1Servicio serv) {
-		entityManager.remove(serv);
+		entityManager.remove(entityManager.contains(serv) ? serv : entityManager.merge(serv));
 		
 	}
 

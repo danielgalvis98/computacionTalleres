@@ -86,7 +86,7 @@ public class ServicioDelegateImp extends GenericDelegate implements ServicioDele
 		HttpEntity<TransactionBody<List<Tmio1Servicio>>> request = new HttpEntity<> (transaction);
 		ResponseEntity<TransactionBody<List<Tmio1Servicio>>> response = null;
 		
-		response = restTemplate.exchange(SERVER+"api/servicio/" + date, HttpMethod.GET, 
+		response = restTemplate.exchange(SERVER+"api/servicio/" + date.toString(), HttpMethod.GET, 
 				request, new ParameterizedTypeReference<TransactionBody<List<Tmio1Servicio>>>() {
 				});
 		

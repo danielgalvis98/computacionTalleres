@@ -15,7 +15,7 @@ public interface IApiServicios {
 	
 	public ResponseEntity<TransactionBody<Tmio1Servicio>> saveServicio(TransactionBody<Tmio1Servicio> service);
 	
-	public TransactionBody<Iterable<Tmio1Servicio>> getServicesFiltered(LocalDate toCompare);
+	public TransactionBody<Iterable<Tmio1Servicio>> getServicesFiltered(String toCompare);
 	
 	public ResponseEntity<TransactionBody<Tmio1Servicio>> getServicio(@PathVariable("idRuta") int idRuta, @PathVariable("cedulaConductor")
 	String cedulaConductor, @PathVariable("idBus")int idBus, @PathVariable("fechaInicio") String fechaInicio,
