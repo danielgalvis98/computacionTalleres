@@ -10,6 +10,6 @@ public interface BusDelegate {
 
 	public Tmio1Bus getBus(Integer idBus);
 
-	Tmio1Bus addTmio1Bus(Tmio1Bus bus);
+	public Tmio1Bus addTmio1Bus(Tmio1Bus bus);
 
 }

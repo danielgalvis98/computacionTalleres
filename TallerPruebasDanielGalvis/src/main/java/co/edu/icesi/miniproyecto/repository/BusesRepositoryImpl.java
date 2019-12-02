@@ -24,7 +24,6 @@ public class BusesRepositoryImpl implements BusesRepository{
 		
 	}
 
-
 	@Override
 	public Tmio1Bus findById(int id) {
 		return entityManager.find(Tmio1Bus.class, id);

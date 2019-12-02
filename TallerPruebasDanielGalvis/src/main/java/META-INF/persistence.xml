@@ -6,11 +6,7 @@
 		<class>co.edu.icesi.miniproyecto.model.Tmio1Ruta</class>
 		<class>co.edu.icesi.miniproyecto.model.Tmio1Servicio</class>
 		<class>co.edu.icesi.miniproyecto.model.Tmio1ServicioPK</class>
-		<class>co.edu.icesi.miniproyecto.model.Tmio1ServiciosSitio</class>
-		<class>co.edu.icesi.miniproyecto.model.Tmio1ServiciosSitioPK</class>
 		<class>co.edu.icesi.miniproyecto.model.Tmio1Sitio</class>
-		<class>co.edu.icesi.miniproyecto.model.Tmio1SitiosRuta</class>
 		<class>co.edu.icesi.miniproyecto.model.Tmio1Usuario</class>
-		<class>co.edu.icesi.miniproyecto.model.Tmio1SitiosRutaPK</class>
 	</persistence-unit>
 </persistence>
