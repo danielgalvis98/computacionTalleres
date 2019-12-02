@@ -105,14 +105,12 @@ public class ServiciosServicioImpl implements ServiciosServicio{
 	@Override
 	@Transactional
 	public Tmio1Servicio getServicio(Tmio1ServicioPK id) {
-		// TODO Auto-generated method stub
 		return repository.findById(id);
 	}
 
 	@Override
 	@Transactional
 	public Iterable<Tmio1Servicio> getAllServicios() {
-		// TODO Auto-generated method stub
 		return repository.findAll();
 	}
 
