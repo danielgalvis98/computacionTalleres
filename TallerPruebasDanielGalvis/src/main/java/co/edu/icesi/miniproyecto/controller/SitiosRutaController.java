@@ -90,7 +90,7 @@ public class SitiosRutaController {
 		key.setIdSitio(idSitio);
 		
 		Tmio1SitiosRuta sitioRuta = sitioRutaDelegate.getSitioRuta(key);
-		if (sitioRuta == null)
+		if (sitioRuta == null || sitioRuta.getId() == null)
 			throw new IllegalArgumentException("Combinación de parámetros inválida");
 		
 		model.addAttribute("tmioSitiosRutaPK", sitioRuta.getId());

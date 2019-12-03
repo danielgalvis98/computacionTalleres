@@ -71,10 +71,12 @@ public class Tmio1Ruta implements Serializable {
 
 	//bi-directional many-to-one association to Tmio1ServiciosSitio
 	@OneToMany(mappedBy="tmio1Ruta")
+	@JsonIgnore
 	private List<Tmio1ServiciosSitio> tmio1ServiciosSitios;
 
 	//bi-directional many-to-one association to Tmio1SitiosRuta
 	@OneToMany(mappedBy="tmio1Ruta1")
+	@JsonIgnore
 	private List<Tmio1SitiosRuta> tmio1SitiosRutas1;
 
 	public Tmio1Ruta() {

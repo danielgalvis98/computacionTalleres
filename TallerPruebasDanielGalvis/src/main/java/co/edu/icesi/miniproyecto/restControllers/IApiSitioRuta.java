@@ -13,7 +13,7 @@ public interface IApiSitioRuta {
 	
 	public ResponseEntity<TransactionBody<Tmio1SitiosRuta>> saveSitioRuta (@RequestBody TransactionBody<Tmio1SitiosRuta> sitioRuta);
 	
-	public ResponseEntity<TransactionBody<Tmio1SitiosRuta>> getSitioRuta (@RequestParam int idSitio, @RequestParam int idRuta);
+	public ResponseEntity<TransactionBody<Tmio1SitiosRuta>> getSitioRuta (int idSitio, int idRuta);
 	
 	public ResponseEntity<TransactionBody<Tmio1SitiosRuta>> deleteSitioRuta (@RequestBody TransactionBody<Tmio1SitiosRuta> sitioRuta);
 

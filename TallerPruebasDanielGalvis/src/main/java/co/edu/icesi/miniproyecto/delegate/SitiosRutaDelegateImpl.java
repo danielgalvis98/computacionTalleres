@@ -55,12 +55,19 @@ public class SitiosRutaDelegateImpl extends GenericDelegate implements SitiosRut
 		HttpEntity<TransactionBody<Tmio1SitiosRutaPK>> request = new HttpEntity<>(transaction);
 		ResponseEntity<TransactionBody<Tmio1SitiosRuta>> response = null;
 		
-		response =restTemplate.exchange(SERVER+"api/sitioruta/" + key.getIdSitio()
-		+ "/" + key.getIdRuta() ,HttpMethod.GET, request,
-		        		new ParameterizedTypeReference<TransactionBody<Tmio1SitiosRuta>>() {
-				});
-		
-		return response.getBody().getBody();
+		System.out.println(SERVER+"api/sitioruta/" + key.getIdSitio()
+		+ "/" + key.getIdRuta());
+		try {
+			response =restTemplate.exchange(SERVER+"api/sitioruta/" + key.getIdSitio()
+			+ "/" + key.getIdRuta() ,HttpMethod.GET, request,
+			new ParameterizedTypeReference<TransactionBody<Tmio1SitiosRuta>>() {
+			});
+			
+			return response.getBody().getBody();
+			
+		} catch (Exception e) {
+			return (new Tmio1SitiosRuta());
+		}
 	}
 
 	@Override

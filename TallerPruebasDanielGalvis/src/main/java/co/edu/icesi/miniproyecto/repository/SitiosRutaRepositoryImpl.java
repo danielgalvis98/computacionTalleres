@@ -17,7 +17,7 @@ public class SitiosRutaRepositoryImpl implements SitiosRutaRepository {
 	
 	@Override
 	public Iterable<Tmio1SitiosRuta> findAll() {
-		String jpql = "Select a FROM Tmio1SitiosRuta";
+		String jpql = "Select a FROM Tmio1SitiosRuta a";
 		return entityManager.createQuery(jpql).getResultList();
 	}
 
