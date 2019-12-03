@@ -2,6 +2,7 @@ package co.edu.icesi.miniproyecto.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * The primary key class for the tmio1_sitios_rutas database table.
@@ -13,9 +14,11 @@ public class Tmio1SitiosRutaPK implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name="id_sitio", insertable=false, updatable=false)
+	@NotNull
 	private Integer idSitio;
 
 	@Column(name="id_ruta", insertable=false, updatable=false)
+	@NotNull
 	private Integer idRuta;
 
 	public Tmio1SitiosRutaPK() {

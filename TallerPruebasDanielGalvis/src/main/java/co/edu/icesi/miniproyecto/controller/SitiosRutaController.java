@@ -36,7 +36,7 @@ public class SitiosRutaController {
 	
 	@GetMapping("")
 	public String indexSitioRuta(Model model) {
-		model.addAttribute("tmioSitiosRutaPK", new Tmio1SitiosRutaPK());
+		model.addAttribute("tmio1SitiosRutaPK", new Tmio1SitiosRutaPK());
 		
 		model.addAttribute("sitiosrutas", sitioRutaDelegate.getAllSitiosRuta());
 		return "sitiosruta/index";
@@ -44,7 +44,7 @@ public class SitiosRutaController {
 	
 	@GetMapping("/add")
 	public String addSitioRuta (Model model) {
-		model.addAttribute("tmioSitiosRutaPK", new Tmio1SitiosRutaPK());
+		model.addAttribute("tmio1SitiosRutaPK", new Tmio1SitiosRutaPK());
 		
 		model.addAttribute("sitios", sitiosDelegate.getAllSitios());
 		model.addAttribute("rutas", rutaDelegate.getAllRutas());
@@ -93,7 +93,7 @@ public class SitiosRutaController {
 		if (sitioRuta == null || sitioRuta.getId() == null)
 			throw new IllegalArgumentException("Combinación de parámetros inválida");
 		
-		model.addAttribute("tmioSitiosRutaPK", sitioRuta.getId());
+		model.addAttribute("tmio1SitiosRutaPK", sitioRuta.getId());
 		model.addAttribute("sitios", sitiosDelegate.getAllSitios());
 		model.addAttribute("rutas", rutaDelegate.getAllRutas());
 		
