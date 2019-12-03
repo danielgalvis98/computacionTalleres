@@ -43,6 +43,9 @@ public class SitiosRutaServiceImpl implements SitiosRutaService {
 		if (ruta == null)
 			throw new RuntimeException("La ruta debe de estar registada");
 		
+		if (sitioRutaRepository.findById(pk) != null)
+			throw new RuntimeException("Ya existe una asociación entre esta ruta y servicio.");
+		
 		sitioRutaRepository.addSitioRuta(sitioRuta);
 	}
 

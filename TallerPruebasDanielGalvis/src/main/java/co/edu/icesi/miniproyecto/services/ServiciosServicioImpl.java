@@ -82,6 +82,10 @@ public class ServiciosServicioImpl implements ServiciosServicio{
 			throw new RuntimeException("La ruta debe de estar registrada");
 		}
 		
+		Tmio1ServicioPK pk = servicio.getId();
+		
+		if (repository.findById(pk) != null)
+			throw new RuntimeException("Ya existe un servicio con esa información");
 		repository.save(servicio);
 	}
 
