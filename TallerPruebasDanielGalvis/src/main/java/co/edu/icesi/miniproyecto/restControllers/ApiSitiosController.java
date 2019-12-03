@@ -71,11 +71,19 @@ public class ApiSitiosController implements IApiSitios {
 	@Override
 	public ResponseEntity<TransactionBody<Tmio1Sitio>> deleteSitio(TransactionBody<Tmio1Sitio> sitio) {
 		Tmio1Sitio sitios =sitio.getBody();
-		sitioService.removeSitio(sitios);
-		TransactionBody<Tmio1Sitio> tb = new TransactionBody<>("DelServ",sitios);
-		ResponseEntity<TransactionBody<Tmio1Sitio>> response = new ResponseEntity<> (tb,
-				HttpStatus.ACCEPTED);
-		return response;
+		try {
+			sitioService.removeSitio(sitios);
+			TransactionBody<Tmio1Sitio> tb = new TransactionBody<>("DelServ",sitios);
+			ResponseEntity<TransactionBody<Tmio1Sitio>> response = new ResponseEntity<> (tb,
+					HttpStatus.ACCEPTED);
+			return response;
+		}catch(Exception e) {
+			TransactionBody<Tmio1Sitio> tb = new TransactionBody<>("DelServ",sitios);
+			ResponseEntity<TransactionBody<Tmio1Sitio>> response = new ResponseEntity<> (tb,
+					HttpStatus.PRECONDITION_FAILED);
+			return response;
+		}
+		
 	}
 
 }

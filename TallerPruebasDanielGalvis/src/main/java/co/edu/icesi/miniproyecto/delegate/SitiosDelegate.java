@@ -12,7 +12,7 @@ public interface SitiosDelegate {
 
 	public Tmio1Sitio getSitioById(long idSitio);
 
-	public void removeSitio(Tmio1Sitio sitioById);
+	public void removeSitio(Tmio1Sitio sitioById) throws Exception;
 
 	public void updateTmio1Sitio(Tmio1Sitio tmio1Sitio);
 

@@ -79,7 +79,12 @@ public class SitiosController {
 	
 	@GetMapping("/remove/{idSitio}")
 	public String removeSitio(@PathVariable("idSitio") long idSitio, Model model) {
-		sitiosDelegate.removeSitio(sitiosDelegate.getSitioById(idSitio));
-		return "redirect:/sitio";
+		try {
+			sitiosDelegate.removeSitio(sitiosDelegate.getSitioById(idSitio));
+			return "redirect:/sitio";
+		} catch (Exception e) {
+			model.addAttribute("mensaje","Violacion de la integridad referencial! Sitio referenciado por un SitioRuta");
+			return "error";
+		}
 	}
 }
