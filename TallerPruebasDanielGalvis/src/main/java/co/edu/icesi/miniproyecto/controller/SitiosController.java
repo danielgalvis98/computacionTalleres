@@ -38,7 +38,7 @@ public class SitiosController {
 	
 	@GetMapping("/add")
 	public String addSitio(Model model) {
-		model.addAttribute("tmio1sitio",new Tmio1Sitio());
+		model.addAttribute("tmio1Sitio",new Tmio1Sitio());
 		return "sitios/add";
 	}
 	

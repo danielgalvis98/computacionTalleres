@@ -3,6 +3,7 @@ package co.edu.icesi.miniproyecto.model;
 import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -25,8 +26,10 @@ public class Tmio1Sitio implements Serializable {
 	private long id;
 	
 	@NotBlank
+	@NotNull
 	private String descripcion;
 	@NotBlank
+	@NotNull
 	private String nombre;
 
 	//bi-directional many-to-one association to Tmio1ServiciosSitio
