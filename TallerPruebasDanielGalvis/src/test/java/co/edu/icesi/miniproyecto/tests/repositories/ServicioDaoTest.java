@@ -192,8 +192,8 @@ public class ServicioDaoTest {
 		pk4.setIdBus(1);
 		pk4.setIdRuta(2);
 		
-		pk4.setFechaInicio(LocalDate.parse("2019-10-15", formatter));
-		pk4.setFechaFin(LocalDate.parse("2026-01-01", formatter));
+		pk4.setFechaInicio(LocalDate.parse("2019-10-15"));
+		pk4.setFechaFin(LocalDate.parse("2026-01-01"));
 		if (!tServiciosDao.findAll().iterator().hasNext()) {
 			setupBuses();
 			setupRutas();
